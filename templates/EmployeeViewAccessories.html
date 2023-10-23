@@ -1,0 +1,49 @@
+{% extends 'EmployeePage.html' %}
+{% block body %}
+    <div class="content">
+        <div class="container mt-3 ">
+            <div class="row">
+                <div class="col-12 bg-success">
+                    <h2 class="my-4 fw-bold text-white">Manage Cylinder</h2>
+                </div>
+            </div>
+        </div>
+      <div class="container mt-3">
+            <div class="row">
+                <div class="col-12 ">
+                    <table class="table table-secondary table-bordered text-center my-5 ">
+                          <thead>
+                            <tr class="ms-auto">
+                              <th scope="col">Title</th>
+                              <th scope="col">Description</th>
+                              <th scope="col">Price</th>
+                              <th scope="col">Image</th>
+                                <th scope="col">Edit</th>
+                                <th scope="col">Delete</th>
+                            </tr>
+                          </thead>
+                        {% for i in data%}
+                          <tbody>
+                            <tr>
+                              <td>{{i.Acess_title}}</td>
+                              <td>{{i.Acess_Desc}}KG</td>
+                              <td>RS-{{i.Acess_price}}</td>
+                                <td><a href="{{i.Acess_image_cover.url}}">{{i.Acess_image_cover.url}}</a> </td>
+                              <td><form action="EmpEditAcessories"  method="get">
+                                  {%csrf_token%}
+                                  <input type="text" name="Edit_id" value="{{i.Accessories_id}}"hidden>
+                                  <button type="submit" class=" btn btn-primary">Edit</button></td>
+                                    </form>
+                         <td><form action="CylinderDelete" method="post">
+                             <input type="text" name="delete_id" value="{{i.Accessories_id}}"hidden>
+                             {%csrf_token%}
+                             <button type="submit" class=" btn btn-primary">Delete</a></td>
+                            </tr>
+                          </form>
+                          </tbody>
+                        {%endfor%}
+                    </table>
+                </div>
+            </div>
+        </div>
+{% endblock %}

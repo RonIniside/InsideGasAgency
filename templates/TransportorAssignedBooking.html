@@ -1,0 +1,196 @@
+{% extends 'TransportorPage.html' %}
+{% block body %}
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+
+   <div class="content">
+        <div class="container mt-3 ">
+            <div class="row">
+                <div class="col-12 bg-success">
+                    <h2 class="my-4 fw-bold text-white">Assigned Bookings</h2>
+                </div>
+            </div>
+        </div>
+
+       <div class="container my-4">
+
+
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link active" data-toggle="tab" href="#home">Cylinder</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#menu1">Accessories</a>
+    </li>
+  </ul>
+
+    <div class="tab-content">
+    <div class="tab-pane container active" id="home">
+              <div class="container mt-3">
+            <div class="row">
+                {%if data %}
+                <div class="col-12 ">
+                    <form data-toggle="validator" action="TransportorViewConformedBookings" method="post" onsubmit="return validateForm();">
+                        {%csrf_token%}
+                   <table class="table table-secondary table-bordered text-center my-5 ">
+                          <thead>
+                            <tr class="ms-auto">
+                              <th scope="col">Connection No</th>
+                              <th scope="col">Name</th>
+                              <th scope="col">Address</th>
+                               <th scope="col">phone</th>
+                              <th scope="col">Type</th>
+                              <th scope="col">Quantity</th>
+                                <th scope="col">Payment Mode</th>
+                                <th scope="col">Price</th>
+                                <th scope="col">Select</th>
+                            </tr>
+                          </thead>
+                        {% for i in data%}
+                          <tbody>
+                            <tr>
+                              <td>{{i.Connection_no}}</td>
+                              <td>{{i.Name}}</td>
+                              <td>{{i.Address}}</td>
+                                <td>{{i.phone}}</td>
+                                <td>{{i.Type}}</td>
+                                <td>{{i.Quantity}}KG</td>
+                                <td>{{i.Payment_Mode}}</td>
+                                <td>{{i.Price}}</td>
+                                <td><input type="checkbox" name="check" value="{{i.Booking_id}}" ></td>
+                          </tbody>
+                        {%endfor%}
+                    </table>
+
+                </div>
+                <div class="col-8 ms-auto me-auto text-center bg-primary rounded fs-5">
+                    <p class="my-2 ">Change Status To:</p>
+                          <select name="action">
+                                <option value="On-The-Way">On The Way</option>
+                            </select><br>
+                    <button type="submit" class="btn btn-success my-3">Submit</button>
+            </div>
+
+        </div>
+                  {%else%}
+          <div class="col-6 " style="{ width: 100%; height: 332px;}">
+              <h2>No Bookings</h2>
+          </div>
+
+          {%endif%}
+</form>
+
+    </div>
+    </div>
+    <div class="tab-pane container fade" id="menu1">
+                      <div class="container mt-3">
+            <div class="row">
+                {%if Acess%}
+                <div class="col-12 ">
+                    <form data-toggle="validator" action="TransportorAssignedAccessoriesooking" method="post" onsubmit="return validateForm();">
+                        {%csrf_token%}
+                   <table class="table table-secondary table-bordered text-center my-5 ">
+                          <thead>
+                            <tr class="ms-auto">
+                              <th scope="col">Connection No</th>
+                              <th scope="col">Name</th>
+                              <th scope="col">Address</th>
+                               <th scope="col">phone</th>
+                              <th scope="col">Type</th>
+                              <th scope="col">Quantity</th>
+                                <th scope="col">Payment Mode</th>
+                                <th scope="col">Price</th>
+                                <th scope="col">Select</th>
+                            </tr>
+                          </thead>
+                        {% for i in Acess%}
+                          <tbody>
+                            <tr>
+                              <td>{{i.Conn_no}}</td>
+                              <td>{{i.CustomerName}}</td>
+                              <td>{{i.Delivery_address}}</td>
+                                <td>{{i.Phone}}</td>
+                                <td>{{i.Product_name}}</td>
+                                <td>{{i.Quantity}}</td>
+                                <td>{{i.Payment}}</td>
+                                <td>{{i.price}}</td>
+                                <td><input type="checkbox" name="check" value="{{i.Booking_id}}" ></td>
+                          </tbody>
+                        {%endfor%}
+                    </table>
+
+                </div>
+                <div class="col-8 ms-auto me-auto text-center bg-primary rounded fs-5">
+                    <p class="my-2 ">Change Status To:</p>
+                          <select name="action">
+                                <option value="On-The-Way">On The Way</option>
+                            </select><br>
+                    <button type="submit" class="btn btn-success my-3">Submit</button>
+            </div>
+
+        </div>
+</form>
+          {%else%}
+          <div class="col-6 " style="{ width: 100%; height: 332px;}">
+              <h2>No Bookings</h2>
+          </div>
+
+          {%endif%}
+    </div>
+    </div>
+    </div>
+    <div class="tab-pane container fade" id="menu2">...</div>
+    </div>
+  </div>
+                  {% if messages %}
+    {% for message in messages %}
+   <div class="modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Success Message</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <strong>{{message}}</strong>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+    {% endfor %}
+    {% endif %}
+<button type="button" id="popup" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" hidden>
+                          PopUp button
+                        </button>
+<script>
+    function validateForm() {
+        var checkboxes = document.querySelectorAll('input[type="checkbox"][name="check"]');
+        for (var i = 0; i < checkboxes.length; i++) {
+            if (checkboxes[i].checked) {
+                return true;
+            }
+        }
+        alert('Please select at least one booking to update.');
+        return false;
+    }
+</script>
+              <script>
+    {% if messages %}
+      // Use JavaScript to trigger the button click
+      document.addEventListener('DOMContentLoaded', function() {
+        var myButton = document.getElementById('popup');
+        popup.click(); // Simulate a button click
+      });
+    {% endif %}
+
+
+  </script>
+{% endblock %}

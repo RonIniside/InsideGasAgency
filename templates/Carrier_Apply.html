@@ -1,0 +1,97 @@
+{% extends 'CustomerPage.html' %}
+{% block body %}
+<div class="job_bg">
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+             <div class="col-md-6 right-box ms-auto mx-auto bg-white my-4 rounded">
+          <div class="row ">
+                <div class="header-text mb-4">
+                     <h2 class="text-center">Hello,</h2>
+                     <p class="text-center fs-4 fw-bold">We are happy,you to be a Part of us.</p>
+                </div>
+			  <form data-toggle="validator" action="CarrierDetail" method="post" enctype="multipart/form-data">
+				{% csrf_token %}
+				  <input type="text" name="Carrier_type" value="{{position}}" hidden>
+					<p class="my-2">Name</p>
+					<input type="text" class="form-control" name="inputName" placeholder="Enter the Name" required="">
+					<p class="my-2">Address</p>
+					<input type="text" class="form-control" name="inputAddress"  placeholder="Enter the Address" required="">
+				 <p class="my-2">Gender</p>
+					  <div class="form-check form-check-inline my-2">
+						  <input class="form-check-input" type="radio" name="customer_gender" id="Male" value="Male" style="cursor: pointer;">
+						  <label class="form-check-label">Male</label>
+
+					  </div>
+					  <div class="form-check form-check-inline my-2 ">
+						  <input class="form-check-input" type="radio" name="customer_gender" id="Female" value="Female" style="cursor: pointer;">
+						  <label class="form-check-label">Female</label>
+
+					  </div>
+				  <p class="my-2">Age</p>
+					<input type="number" class="form-control" name="inputAge" " placeholder="Enter the Address" required="">
+				  <p class="my-2">Phone</p>
+					<input type="text" class="form-control" name="inputPhone"  placeholder="Enter the Phone" required="">
+					<p class="my-2">Location</p>
+					<input type="text" class="form-control" name="inputLocation"  placeholder="Enter the Location" required="">
+				  <p class="my-2">District</p>
+					<input type="text" class="form-control" name="inputDistrict"  placeholder="Enter the Location" required="">
+				  <p class="my-2">Email</p>
+					<input type="Email" class="form-control" name="inputEmail" placeholder="Enter the Email" required="">
+				  <p class="my-2">Cv</p>
+					<input type="file" class="form-control" name="resume"  placeholder="Upload Your Cv" required="">
+				  <div class="input-group mb-3 mt-4">
+                    <button type="submit" class="btn btn-lg btn-primary w-100 fs-6">Apply</button>
+                </div>
+		  </div>
+       </div>
+
+
+
+
+        </div>
+    </div>
+</div>
+</div>
+
+         {% if messages %}
+    {% for message in messages %}
+   <div class="modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Success Message</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <strong>{{message}}</strong>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+    {% endfor %}
+    {% endif %}
+
+
+            <button type="button" id="popup" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" hidden>
+                          PopUp button
+                        </button>
+<script>
+    {% if messages %}
+      // Use JavaScript to trigger the button click
+      document.addEventListener('DOMContentLoaded', function() {
+        var myButton = document.getElementById('popup');
+        popup.click(); // Simulate a button click
+      });
+    {% endif %}
+
+
+  </script>
+
+
+
+
+{% endblock %}

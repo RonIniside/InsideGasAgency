@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet"  href="{%static '/css/NewStyle.css'%}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caprasimo&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="{% static 'fontawesomefree/css/fontawesome.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'fontawesomefree/css/brands.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'fontawesomefree/css/solid.css' %}" rel="stylesheet" type="text/css">
+
+</head>
+<body>
+<nav class="navbar navbar-expand-lg bg-light-subtle h-auto ">
+  <div class="container-fluid">
+      <a class="navbar-brand fs-1 fw-bold ms-5" href="#"><span class="logo"><i class="fas fa-sun"></i></span>Inside Gas</a>
+   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+       <div class="collapse navbar-collapse text-center " id="navbarNavDropdown">
+      <ul class="navbar-nav ms-auto me-5 fs-5 ">
+        <li class="nav-item px-3">
+          <a class="nav-link active" aria-current="page" href="TransportorDashboard">Home</a>
+        </li>
+               <li class="navbar-item px-1">
+                  <a class="nav-link " aria-current="page" href="TransportorViewBookings">View Bookings</a>
+              </li>
+            <li class="navbar-item px-1">
+                  <a class="nav-link " aria-current="page" href="TransportorViewConformedBookings">Assigned Bookings</a>
+              </li>
+              <li class="navbar-item px-1">
+                  <a class="nav-link " aria-current="page" href="TransportorConformedBookings">Conformed Bookings</a>
+              </li>
+               <li class="navbar-item px-1">
+                  <a class="nav-link " aria-current="page" href="loginPage">Logout</a>
+              </li>
+          </ul>
+      </div>
+  </div>
+</nav>
+<section class="Banner_section">
+<div id="carouselExampleCaptions" class="carousel slide ">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="{%static 'image/for-home.jpg'%}" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Global LPG Traders</h5>
+        <p>Let's Get Your Cylinder Booking Done!.</p>
+      </div>
+        <div class="carousel-caption">
+        <h5>Global LPG Traders</h5>
+        <p>Let's Get Your Cylinder Booking Done!.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="..." class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Second slide label</h5>
+        <p>Some representative placeholder content for the second slide.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="..." class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Third slide label</h5>
+        <p>Some representative placeholder content for the third slide.</p>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+</section>
+
+<section class="whyInside mt-3 ">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12 text-center bg-success text-white py-3 ">
+                <h3 class="fs-1 ">why Inside Gas?</h3>
+                <p class="fs-3">What makes us special?&nbsp;&nbsp; Well,&nbsp; there are a few factors that set us<br> distinct from our competitors!</p>
+            </div>
+            <div class="col-lg-3 text-center bg-light py-5 bg-light bg-gradient ">
+                <h3 class="Quick_widgets_h mt-3"><i class="far fa-clock" style="color: #ed3535;"></i></h3>
+                <p class="fs-5">We are quick and reliable</span><br>
+               The connection process is pure convenience takes just 24 working hours, sometimes even less.</p>
+            </div>
+            <div class="col-lg-3 text-center bg-light py-5  ">
+                <h3 class="Quick_widgets_h mt-3"><i class="fas fa-paste" style="color: #ff5024;"></i></h3>
+                <p class="fs-5">Minimal Documentation</span><br>
+               A valid Photo ID proof and an address proof is all we ask for. We even accept self-attested letters for address proof.</p>
+            </div>
+             <div class="col-lg-3 text-center bg-light py-5 ">
+                <h3 class="Quick_widgets_h mt-3"><i class="fas fa-check" style="color: #ff0000;"></i></h3>
+                <p class="fs-5">Your money is safe with us</span><br>
+               The one-time security deposit that is paid at the time of a new connection is fully refundable</p>
+            </div>
+            <div class="col-lg-3 text-center bg-light py-5 ">
+                <h3 class="Quick_widgets_h mt-3"><i class="fas fa-thumbs-up" style="color: #fe0101;"></i></h3>
+                <p class="fs-5">We assure quality & quantity</span><br>
+               Our LPG adheres to the IS 4576 with fervent devotion.</p>
+            </div>
+        </div>
+    </div>
+
+</section>
+	<footer class="footer-w3ls  footer ">
+		<div class="container py-sm-4">
+			<div class="row">
+				<div class="col-lg-4 col-sm-6 agileinfo_footer_grid">
+					<!-- logo -->
+					<div class="logo-2 mb-sm-4 mb-3 ms-5">
+						<h2><a href="">Inside gas</a></h2>
+					</div>
+					<!-- //logo -->
+					<p class="text-center" >SHV Energy Private Limited is a 100% subsidiary of the Dutch Multinational SHV Energy N.V. Established in India in 1996 under the brand name SUPERGAS, we have built a reputation as the leading LPG player. With a pan-Indian presence, we have access to 7 import terminals, 4 depots and 20 filling plants. Since its inception, SUPERGAS has retained the coveted CRISIL<br> Rating No.1 for its infrastructure<br>,technicalexcellence,promptcustomer service, and strong commitment to safety.</p></p>
+				</div>
+				<div class="col-lg-4 col-sm-6 agileinfo_footer_grid mt-sm-0 mt-5">
+					<h4 class="mb-sm-5 mb-4">Recent Articles</h4>
+					<ul class="list-unstyled">
+						<li>
+							<span class="fa fa-angle-double-right mr-2"></span>STV Makes its Mark with Grand Central Madison</li>
+						<li>
+							<span class="fa fa-angle-double-right mr-2"></span>Equity, Technology Drive Link21’s Public Engagement Campaign
+						</li>
+						<li>
+							<span class="fa fa-angle-double-right mr-2"></span>Consultant Q&A: HDR's Malfara Talks Workforce Development, Equity</li>
+						<li>
+							<span class="fa fa-angle-double-right mr-2"></span>Consultant Q&A: Stantec's Al-Tahan on Evolution of Mobility, Design-Build</li>
+					</ul>
+				</div>
+
+				<div class="col-lg-4 col-sm-6 agileinfo_footer_grid mt-lg-0 mt-5">
+					<h4 class="mb-sm-5 mb-4">Address</h4>
+					<ul class="list-unstyled">
+						<li>
+							<span class="fa fa-map-marker mr-2"></span> JLN Metro Station, 4th Floor Kaloor Ernakulam - 682017 09:30 am - 05.00 pm</li>
+						<li>
+							<span class="fa fa-envelope mr-2"></span>
+							<a href="mailto:contact@kmrl.co.in">contact@kmrl.co.in</a>
+						</li>
+						<li>
+							<span class="fa fa-phone mr-2"></span>Call Us. 0484-2846700</li>
+						<li>
+							<span class="fa fa-clock-o mr-2"></span>Everyday 6.00am-10.30pm(sunday: 8.00am-10.30pm )</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script src="js/bootstrap.js"></script>
+</body>
+</html>

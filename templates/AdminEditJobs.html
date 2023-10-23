@@ -1,0 +1,33 @@
+{% extends 'AdminPage.html' %}
+{% block body %}
+{% if Message %}
+<div class="alert alert-success alert-dismissible fade show  w-50 ms-auto me-auto mt-5 text-center" role="alert">
+  <strong>{{Message}}</strong>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{% endif %}
+<div class="col-md-6 right-box ms-auto mx-auto bg-white my-4 rounded">
+          <div class="row ">
+                <div class="header-text mb-4">
+                     <p class="text-center fs-4 fw-bold">Add Job.</p>
+                </div>
+			  <form data-toggle="validator"  action="AdminUpdateJob" method="post">
+				{% csrf_token %}
+				  <input type="text" name="id" value="{{Job.Job_id}}" hidden>
+					<p class="my-2">Destination</p>
+					<input type="text" class="form-control"  name="Destination" value="{{Job.Designation}}" placeholder="Enter the Destination" required="">
+					<p class="my-2">Qualification</p>
+					<input type="text" class="form-control"  name="Qualification" value="{{Job.Qualification}}" placeholder="Enter the Qualification" required="">
+				  <p class="my-2">Salary</p>
+					<input type="number" class="form-control"  name="Salary" value="{{Job.Salary}}" placeholder="Enter the Age" required="">
+				  <p class="my-2">JobType</p>
+					<input type="text" class="form-control"  name="JobType" value="{{Job.JobType}}" placeholder="Enter the Job Type" required="">
+					<p class="my-2">Last Date</p>
+					<input type="date" class="form-control"  name="Lastdate" value="{{date}}" placeholder="Enter the Last date" required="">
+				  <div class="input-group mb-3 mt-4">
+                    <button class="btn btn-lg btn-primary w-100 fs-6">Update</button>
+                </div>
+		  </div>
+       </div>
+
+{% endblock %}

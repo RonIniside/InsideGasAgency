@@ -1,0 +1,48 @@
+{% extends 'AdminPage.html' %}
+{% block body %}
+{% if Message %}
+<div class="alert alert-success alert-dismissible fade show  w-50 ms-auto me-auto mt-5 text-center" role="alert">
+  <strong>{{Message}}</strong>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{% endif %}
+<div class="col-md-6 right-box ms-auto mx-auto bg-white my-4 rounded">
+          <div class="row ">
+                <div class="header-text mb-4">
+                     <h2 class="text-center">Hello,</h2>
+                     <p class="text-center fs-4 fw-bold">We are happy,you to be a Part of us.</p>
+                </div>
+			  <form data-toggle="validator"  method="post">
+				{% csrf_token %}
+					<p class="my-2">Name</p>
+					<input type="text" class="form-control"  name="emp_name" placeholder="Enter the Name" required="">
+					<p class="my-2">Address</p>
+					<input type="text" class="form-control"  name="emp_address" placeholder="Enter the Address" required="">
+				  <p class="my-2">Gender</p>
+				  <div class="form-check form-check-inline my-2">
+					  <input type="radio" class="form-check-input" id="Male" value="Male" name="emp_gender">
+					  <label class="form-check-label">Male</label>
+				  </div>
+				  <div class="form-check form-check-inline my-2 ">
+					  <input type="radio" class="form-check-input" id="Female" value="Female" name="emp_gender">
+					  <label class="form-check-label">Female</label>
+				  </div>
+				  <p class="my-2">Age</p>
+					<input type="number" class="form-control"  name="emp_age" placeholder="Enter the Age" required="">
+				  <p class="my-2">Phone</p>
+					<input type="number" class="form-control"  name="emp_phone" placeholder="Enter the Phone" required="">
+					<p class="my-2">Location</p>
+					<input type="text" class="form-control"  name="emp_location" placeholder="Enter the Location" required="">
+				  <p class="my-2">District</p>
+					<input type="text" class="form-control"  name="emp_district" placeholder="Enter the Pincode" required="">
+				  <p class="my-2">Email</p>
+					<input type="Email" class="form-control"  name="emp_email" placeholder="Enter the Email" required="">
+				  <p class="my-2">Password</p>
+					<input type="Password" class="form-control"  name="emp_passowrd" placeholder="Enter the Password" required="">
+				  <div class="input-group mb-3 mt-4">
+                    <button class="btn btn-lg btn-primary w-100 fs-6">Register</button>
+                </div>
+		  </div>
+       </div>
+
+{% endblock %}

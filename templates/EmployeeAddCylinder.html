@@ -1,0 +1,53 @@
+{% extends 'EmployeePage.html' %}
+{% block body %}
+    <div class="content">
+        <div class="container mt-3 ">
+            <div class="row">
+                <div class="col-12 bg-success">
+                    <h2 class="my-4 fw-bold text-white">Manage Cylinder</h2>
+                </div>
+            </div>
+        </div>
+      <div class="col-md-6 right-box ms-auto mx-auto bg-white my-4 rounded">
+            <div class="row">
+                <div class="col-12 ">
+                    <form action="EmAddcylinder" method="POST" enctype="multipart/form-data">
+                        {%csrf_token%}
+                        <div class="mb-3">
+                        <label for="exampleInputTitle" class="form-label">Title</label>
+                        <input type="text" class="form-control" id="exampleInputtitle" name="Title" required>
+                      </div>
+                      <div class="mb-3">
+                        <label for="exampleInputkg" class="form-label">Quantity(Kg)</label>
+                        <input type="number" class="form-control" id="exampleInputkg" name="Quantity" required>
+                      </div>
+                        <div class="mb-3">
+                        <label for="exampleInputDes" class="form-label">Description</label>
+                        <input type="text" class="form-control" id="exampleInputDes" name="Description" required>
+                      </div>
+                      <div class="mb-3">
+                          <p class="my-2">Cylinder For</p>
+                          <div class="form-check form-check-inline my-2">
+                              <input type="radio" class="form-check-input" id="Home" name="Connection_type" value="Home" checked required>
+                              <label class="form-check-label">Home</label>
+                          </div>
+                          <div class="form-check form-check-inline my-2 ">
+                              <input type="radio" class="form-check-input" id="Establishment" name="Connection_type" value="Establishment" required>
+                              <label class="form-check-label">Establishment</label>
+                          </div>
+                      </div>
+                        <div class="mb-3">
+                        <label for="exampleInputDescription" class="form-label">Price</label>
+                        <input type="number" class="form-control" id="exampleInputDescription" name="Price" required>
+                        </div>
+                        <p class="my-3">Cylinder Image:</p>
+					    <input type="file" class="form-control" name="cy_image" placeholder="Enter the Any ID Proof" required="">
+                        <div class="mt-3 text-center">
+                       <button type="submit" class="btn btn-primary ms-auto ">Submit</button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+{% endblock %}

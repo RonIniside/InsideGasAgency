@@ -1,0 +1,40 @@
+{% extends 'CustomerPage.html' %}
+{% block body %}
+{%if data%}
+<div class="container mt-3">
+            <div class="row">
+                <div class="col-12 ">
+                    <table class="table table-secondary table-bordered text-center my-5 ">
+                          <thead>
+                            <tr class="ms-auto">
+                              <th scope="col">Published On</th>
+                              <th scope="col">Last date</th>
+                              <th scope="col">Designation</th>
+                                <th scope="col">Qualification</th>
+                              <th scope="col">Salary</th>
+                              <th scope="col">Job Type</th>
+                              <th scope="col">View details</th>
+                            </tr>
+                          </thead>
+                        {%for i in data%}
+                          <tbody>
+                            <tr>
+                              <td>{{i.Published_on}}</td>
+                              <td>{{i.Last_date}}</td>
+                              <td>{{i.Designation}}</td>
+                                <td>{{i.Qualification}}</td>
+                              <td>{{i.Salary}}</td>
+                              <td>{{i.JobType}}</td>
+                              <td><a href="/CarrierDetail?position={{i.Designation}}" class="btn btn-primary d-inline-flex">Apply</a></td>
+                            </tr>
+                          </tbody>
+                        {%endfor%}
+                    </table>
+                </div>
+            </div>
+</div>
+{%else%}
+<h1 class="text-center mt-5">No Vacancy</h1>
+{%endif%}
+
+{% endblock %}

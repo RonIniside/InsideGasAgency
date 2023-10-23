@@ -1,0 +1,49 @@
+
+{% extends 'EmployeePage.html' %}
+{% block body %}
+<div class="content">
+        <div class="container mt-3 ">
+            <div class="row">
+                <div class="col-12 bg-success">
+                    <h2 class="my-4 fw-bold text-white">Add Accessories</h2>
+                </div>
+            </div>
+        </div>
+      <div class="col-md-6 right-box ms-auto mx-auto bg-white my-4 rounded">
+            <div class="row">
+                <div class="col-12 ">
+                    <form action="EmployeeAddAccess" method="post" enctype="multipart/form-data">
+                        {%csrf_token%}
+                      <div class="mb-3">
+                        <label for="exampleInputTitle"  class="form-label">Title</label>
+                        <input type="text"  name="title" class="form-control" id="exampleInputTitle">
+                      </div>
+                        <div class="mb-3">
+                        <label for="exampleInputDescription1" class="form-label">Description</label>
+                        <input type="text" name="description" class="form-control" id="exampleInputDescription1">
+                      </div>
+                      <div class="mb-3">
+                        <label for="exampleInputPrice" class="form-label">Price</label>
+                        <input type="number" name="Price" class="form-control" id="exampleInputPrice">
+                      </div>
+                        <div class="mb-3">
+                        <label for="exampleInputCoverImage" class="form-label">Cover Image</label>
+                        <input type="file" name="cover" class="form-control" id="exampleInputCoverImage">
+                        </div>
+                         <div class="mb-3">
+                        <label for="exampleInput2ndimgImage" class="form-label">2nd Image</label>
+                        <input type="file" name="2ndimage" class="form-control" id="exampleInput2ndimgImage">
+                        </div>
+                         <div class="mb-3">
+                        <label for="exampleInput3rdimgImage" class="form-label">3rd Image</label>
+                        <input type="file" name="3rdimage" class="form-control" id="exampleInput3rdimgImage">
+                        </div>
+                        <div class="mb-3 text-center">
+                       <button type="submit" class="btn btn-primary ms-auto ">Submit</button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+{% endblock %}

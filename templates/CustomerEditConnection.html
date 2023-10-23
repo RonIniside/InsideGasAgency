@@ -1,0 +1,59 @@
+{% extends 'Customerinherit.html' %}
+{% block body %}
+<body class="bg-light background-img">
+ <div class="col-md-6 right-box ms-auto mx-auto bg-white my-4 rounded">
+          <div class="row ">
+                <div class="header-text mb-4">
+                     <h2 class="text-center">Hello,</h2>
+                     <p class="text-center fs-4 fw-bold">We are happy,you to be a Part of us.</p>
+                </div>
+			  {%for i in data %}
+			  <form  id="myForm" data-toggle="validator" action="EditConnection" method="POST" enctype="multipart/form-data">
+				{% csrf_token %}
+					<p class="my-2">Name</p>
+					<input type="text" class="form-control" name="cname" value="{{i.Con_name}}" placeholder="Enter the Name" required="">
+					<p class="my-2">Address</p>
+					<input type="text" class="form-control"  name="address" value="{{i.Con_Address}}" placeholder="Enter the Address" required="">
+				  <p class="my-2">Gender</p>
+				  <div class="form-check form-check-inline my-2" >
+					  <input type="radio" class="form-check-input" id="Male" value="male" {% if i.Con_gender == 'male' %} checked {% endif %} name="gender_chk">
+					  <label class="form">Male</label>
+				  </div>
+				  <div class="form-check form-check-inline my-2 ">
+					  <input type="radio" class="form-check-input" id="Female" value="female" {% if i.Con_gender == 'female' %} checked {% endif %} name="gender_chk">
+					  <label class="form-check-label">Female</label>
+				  </div>
+				  <p class="my-2">Phone</p>
+					<input type="tel" class="form-control" name="c_phone"  value="{{i.Con_phone}}" placeholder="Enter the Phone" required pattern="[0-9]{10}">
+				  <p class="my-2">Location</p>
+					<input type="text" class="form-control"  name="location" value="{{i.Con_location}}" placeholder="Enter the Location" required="">
+				  <p class="my-2">Pincode</p>
+					<input type="number" class="form-control"  name="pincode"  value="{{i.Con_pincode}}" placeholder="Enter the Pincode" required="">
+				  <p class="my-2">District</p>
+					<input type="text" class="form-control"  name="c_district"  value="{{i.Con_District}}" placeholder="Enter the District" required="">
+				  <p class="my-2">Connection For</p>
+				  <div class="form-check form-check-inline my-2">
+					  <input type="radio" class="form-check-input" id="Home" value="Home" {% if i.Con_for == 'Home' %} checked {%endif%} name="Connection_type" onclick="HideShowDiv(1)" checked="checked">
+					  <label class="form-check-label">Home</label>
+				  </div>
+				  <div class="form-check form-check-inline my-2 ">
+					  <input type="radio" class="form-check-input" id="Establishment" value="Establishment" {% if i.Con_for == 'Establishment' %} checked {%endif%} name="Connection_type" onclick="HideShowDiv(2)">
+					  <label class="form-check-label">Establishment</label>
+				  </div>
+				  <div id="div" style="display:none;">
+					  <p class="my-2">Name of Establishment</p>
+					<input type="text" class="form-control" id="Est_in" value="{{i.Con_Est_name}}" name="c_est_name" placeholder="Enter the Name">
+				  <p class="my-2">Address of Establishment</p>
+					<input type="text" class="form-control" id="Est_in" value="{{i.Con_Est_Address}}" name="c_est_address" placeholder="Enter the Address">
+				  </div>
+				  <p class="my-2">Id Proof</p>
+				  <p>Current File:<a href="{{i.Con_Id_proof.url}}">{{i.Con_Id_proof.url}}</a> </p>
+					<input type="file" class="form-control" name="idproof" placeholder="Enter the Any ID Proof" required="">
+				  <div class="input-group mb-3 mt-4">
+                    <button id="submitButton" class="btn btn-lg btn-primary w-100 fs-6">Update</button>
+                </div>
+				  {%endfor%}
+		  </div>
+       </div>
+</body>
+{% endblock%}

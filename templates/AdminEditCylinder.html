@@ -1,0 +1,41 @@
+{% extends 'AdminPage.html' %}
+{% block body %}
+<body class="bg-light background-img">
+ <div class="col-md-6 right-box ms-auto mx-auto bg-white my-4 rounded">
+          <div class="row ">
+                <div class="header-text mb-4">
+                     <h2 class="text-center">Hello,</h2>
+                     <p class="text-center fs-4 fw-bold">We are happy,you to be a Part of us.</p>
+                </div>
+			  <form data-toggle="validator" action="AdminEditCylinder" method="POST" enctype="multipart/form-data">
+				{% csrf_token %}
+				  {% for data in data%}
+				  <input type="text" class="form-control" name="Edit_id" value="{{data.Cylinder_id}}">
+					<p class="my-2">Title</p>
+					<input type="text" class="form-control" name="Title" value="{{data.Title}}" placeholder="Enter the Name" required="">
+					<p class="my-2">Quantity</p>
+					<input type="text" class="form-control"  name="Quantity" value="{{data.Quantity}}" placeholder="Enter the Address" required="">
+				  <p class="my-2">Description</p>
+					<input type="text" class="form-control" name="description" value="{{data.Description}}" placeholder="Enter the Phone" required="">
+				  <p class="my-2">Price</p>
+					<input type="text" class="form-control"  name="Price" value="{{data.Price}}" placeholder="Enter the Location" required="">
+				  <p class="my-2"> For Type</p>
+				  <div class="form-check form-check-inline my-2">
+					  <input type="radio" class="form-check-input" id="Home" name="Connection_type" value="Home" {%if data.ForType == 'Home' %} checked {%endif%} >
+					  <label class="form-check-label">Home</label>
+				  </div>
+				  <div class="form-check form-check-inline my-2 ">
+					  <input type="radio" class="form-check-input" id="Establishment" name="Connection_type" value="Establishment" {%if data.ForType == 'Establishment' %} checked {%endif%}  >
+					  <label class="form-check-label">Establishment</label>
+				  </div>
+				  <p class="my-2">Cylinder Image</p>
+				  <a href="{{data.CylinderImage.url}}">{{data.CylinderImage.url}}</a>
+				  <p class="my-3">Current Image:</p>
+					<input type="file" class="form-control" name="image" placeholder="Enter the Any ID Proof" required="">
+				  <div class="input-group mb-3 mt-4">
+                    <button class="btn btn-lg btn-primary w-100 fs-6">Update</button>
+                </div>
+				  {%endfor%}
+		  </div>
+ </div>
+{% endblock %}

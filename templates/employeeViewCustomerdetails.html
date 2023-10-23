@@ -1,0 +1,52 @@
+{% extends 'EmployeePage.html' %}
+{% block body %}
+{%for i in data %}
+
+ <div class="col-md-6 right-box ms-auto me-auto bg-white my-4 rounded">
+          <div class="row ">
+                <div class="header-text mb-4">
+                     <h2 class="text-center">Hello,</h2>
+                     <p class="text-center fs-4 fw-bold">We are happy,you to be a Part of us.</p>
+                </div>
+			  <form data-toggle="validator"  method="post" action="ViewDetails">
+				{% csrf_token %}
+					<p class="my-2">Name</p>
+					<input type="text" class="form-control" value="{{i.Con_name}}" disabled>
+					<input type="text" name="con_id" value="{{i.Con_id}}" hidden="">
+					  <p class="my-2">Gender</p>
+					  <input type="text" class="form-control" value="{{i.Con_gender}}" disabled>
+				  <p class="my-2">Email</p>
+					<input type="text" class="form-control" value="{{i.Con_gender}}" disabled>
+				  <p class="my-2">Phone</p>
+					<input type="text" class="form-control" value="{{i.Con_phone}}" disabled>
+                  <p class="my-2">location</p>
+					<input type="text" class="form-control" value="{{i.Con_location}}" disabled>
+                  <p class="my-2">District</p>
+					<input type="text" class="form-control" value="{{i.Con_District}}" disabled>
+                  <p class="my-2">pincode</p>
+					<input type="text" class="form-control" value="{{i.Con_pincode}}" disabled>
+                  <p class="my-2">Connection For</p>
+					<input type="text" class="form-control" value="{{i.Con_for}}" disabled>
+                  {% if i.Con_Est_name %}
+                  <p class="my-2">Establishment Name</p>
+					<input type="text" class="form-control" value="{{i.Con_Est_name}}" disabled>
+                  <p class="my-2">Establishment address</p>
+					<input type="text" class="form-control" value="{{i.Con_Est_Address}}" disabled>
+                  {% endif %}
+                  <p class="my-2">ID Proof</p>
+                  <a href="{{i.Con_Id_proof.url}}"  class="form-control">View ID Proof</a>
+                   <p class="my-2">Take Action</p>
+                  <select name="action">
+                        <option value="Accept" {% if i.Is_activate == 'Accept' %}selected{% endif %}>Accept</option>
+                        <option value="OnHold" {% if i.Is_activate == 'OnHold' %}selected{% endif %}>On Hold</option>
+                        <option value="Reject" {% if i.Is_activate == 'Reject' %}selected{% endif %}>Reject</option>
+                    </select>
+
+				  <div class="input-group mb-3 mt-4">
+                    <button class="btn btn-lg btn-primary w-100 fs-6">Update</button>
+                </div>
+              </form>
+		  </div>
+       </div>
+{%endfor%}
+{% endblock %}

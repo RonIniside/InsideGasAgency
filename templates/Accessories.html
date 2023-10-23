@@ -1,0 +1,32 @@
+{% extends 'CustomerPage.html' %}
+{% load static %}
+{% block body %}
+
+<div class="Accessories-Banner">
+</div>
+<div class="container">
+    <div class="row">
+        {%for i in data%}
+        <div class="col-lg-3 col-md-4 my-3 col-sm-6 text-center ">
+            <div class="card cards"style="height: 439px;">
+                <form action="Accessoriesd" method="get">
+                <img src="{{i.Acess_image_cover}}" class="card-image-top" alt="" style="width: 100%;height: 242px">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        {{i.Acess_title}}
+                    </h5>
+                     <p class="card-text">
+                        {{i.Acess_Desc}}
+                    </p>
+                    <h5 class="card-title">Rs{{i.Acess_price}}</h5>
+                    <input type="text"  name="Acess_id" value="{{i.Accessories_id}}" hidden>
+                    <button type="submit" class="btn btn-primary">View details</b>
+                </div>
+            </div>
+        </form>
+    </div>
+        {%endfor%}
+</div>
+</div>
+{% endblock %}
+

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet"  href="{%static '/css/NewStyle.css'%}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caprasimo&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="{% static 'fontawesomefree/css/fontawesome.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'fontawesomefree/css/brands.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'fontawesomefree/css/solid.css' %}" rel="stylesheet" type="text/css">
+
+</head>
+<body>
+<body class="">
+<nav class="navbar navbar-expand-lg  h-auto ">
+  <div class="container-fluid">
+      <a class="navbar-brand fs-1 fw-bold ms-5" href="employeeDashboard"><span class="logo"><i class="fas fa-sun "></i></span>Inside Gas</a>
+   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+       <div class="collapse navbar-collapse text-center " id="navbarNavDropdown">
+      <ul class="navbar-nav ms-auto me-5 fs-5 ">
+        <li class="nav-item px-3">
+          <a class="nav-link active" aria-current="page" href="employeeDashboard">Dashboard</a>
+        </li>
+               <li class="navbar-item1 dropdown px-1">
+                  <a class="nav-link  dropdown-toggle" data-bs-toggle="dropdown" href="Forhome">Bookings</a>
+                   <ul class="dropdown-menu">
+                       <li><a class="dropdown-item" href="EmployeeViewNewBookings">New Bookings</a></li>
+                       <li><hr class="dropdown-divider"></li>
+                        <li><a href="EmpViewConformedBooking" class="dropdown-item">Conformed Bookings</a> </li>
+                       <li><hr class="dropdown-divider"></li>
+                        <li><a href="EmpViewOntheWayBookings" class="dropdown-item">On The Way Bookings</a> </li>
+                       <li><hr class="dropdown-divider"></li>
+                        <li><a href="EmpViewDeliveredbookings" class="dropdown-item">Delivered Bookings</a> </li>
+                       <li><hr class="dropdown-divider"></li>
+                       <li><a href="EmployeeViewCancelledBookings" class="dropdown-item">Canceled Bookings</a> </li>
+                   </ul>
+              </li>
+               <li class="navbar-item dropdown px-1">
+                  <a class="nav-link dropdown-toggle"href="Forhotel"  data-bs-toggle="dropdown">Connections</a>
+                     <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="empviewnewconnection">New Connections</a></li>
+                        <li><a class="dropdown-item" href="EmpViewOnholdConnection">OnHold Connections</a></li>
+                        <li><a class="dropdown-item" href="EMpViewApprovedConnections">Approved Connections</a></li>
+                         <li><a class="dropdown-item" href="EmpViewRejectedConnection">Rejected Connections</a></li>
+                     </ul>
+              </li>
+               <li class="navbar-item dropdown px-1 ">
+                  <a class="nav-link dropdown-toggle"href=""  data-bs-toggle="dropdown"><i class="fa-solid fa-user-pen"></i></i></a>
+                     <ul class="dropdown-menu"style=" margin-left: -46px;">
+                        <li><a class="dropdown-item" href="">Edit Profile</a></li>
+                        <li><a class="dropdown-item" href="out">logout</a></li>
+                     </ul>
+              </li>
+          </ul>
+      </div>
+  </div>
+</nav>
+<div class="main-container d-flex bg-light">
+    <div class="sidebar" id="side_nav">
+        <div class="header-box">
+
+        </div>
+        <ul class="list-unstyled px-2 side-menu-employee fs-5 mt-4">
+            <li class="ms-3 "><a class="text-decoration-none" href="employeeDashboard">Dashboard</a> </li>
+            <li class="navbar-item dropdown ms-3">
+                  <a class="nav-link dropdown-toggle"href=""  data-bs-toggle="dropdown">Delivery Staff</a>
+                     <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="EmployeeViewDStaff">View Delivery Staff</a></li>
+                         <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="EmpAddDStaff">Add Delivery Staff</a></li>
+                         <li><hr class="dropdown-divider"></li>
+                     </ul>
+              </li>
+            <li class="ms-3"><a class="text-decoration-none" href="EmpAssignBooking">Assign Bookings</a> </li>
+            <li class="navbar-item dropdown ms-3">
+                  <a class="nav-link dropdown-toggle"href=""  data-bs-toggle="dropdown">Cylinder</a>
+                     <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="EmployeeManageCylnder">Manage Cylinder</a></li>
+                         <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="EmAddcylinder">Add Cylinder</a></li>
+                         <li><hr class="dropdown-divider"></li>
+                     </ul>
+              </li>
+            <li class="navbar-item dropdown ms-3">
+                  <a class="nav-link dropdown-toggle"href=""  data-bs-toggle="dropdown"> Accessories</a>
+                     <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="empviewaccessories">View Accessories</a></li>
+                         <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="EmployeeAddAccess">Add Accessories</a></li>
+                         <li><hr class="dropdown-divider"></li>
+                     </ul>
+              </li>
+            <li class="ms-3"><a class="text-decoration-none" href="">Users</a> </li>
+        </ul>
+    </div>
+
+<div class="content">
+  {% block body %}
+
+
+{% endblock %}
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script src="js/bootstrap.js"></script>
+
+</body>
+</html>

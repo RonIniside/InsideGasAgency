@@ -1,0 +1,45 @@
+      {% extends 'AdminPage.html' %}
+  {% block body %}
+
+       {%if Job%}
+                <div class="col-12 ">
+                    <table class="table table-secondary table-bordered text-center mx-4 my-5" style="width: 1200px;">
+                          <thead>
+                            <tr class="ms-auto">
+                              <th scope="col">Published On</th>
+                              <th scope="col">Last Date</th>
+                              <th scope="col">Designation</th>
+                              <th scope="col">Qualification</th>
+                              <th scope="col">Salary</th>
+                                <th scope="col">Job Type</th>
+                              <th scope="col">Edit</th>
+                              <th scope="col">Delete</th>
+                            </tr>
+                          </thead>
+                        {% for i in Job%}
+                          <tbody>
+                            <tr>
+                              <td>{{i.Published_on}}</td>
+                              <td>{{i.Last_date}}</td>
+                              <td>{{i.Designation}}</td>
+                                <td>{{i.Qualification}}</td>
+                                <td>{{i.Salary}}</td>
+                                <td>{{i.JobType}}</td>
+                                <td><form action="AdminViewJob" method="get">
+                                    <input type="text" name="id" value="{{i.Job_id}}" hidden>
+                                    <button type="submit" class="btn btn-primary">Edit</button>
+
+                                </form> </td>
+                                <td><form action="" method="get">
+                                    <input type="text" name="id" value="{{i.Job_id}}" hidden>
+                                    <button type="submit" class="btn btn-primary">Delete</button>
+
+                                </form> </td>
+                          </tbody>
+                        {%endfor%}
+                        {%endif%}
+
+                    </table>
+
+
+                      {% endblock %}

@@ -1,0 +1,117 @@
+{% extends 'EmployeePage.html' %}
+{% block body %}
+
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+
+
+<div class="content" xmlns="http://www.w3.org/1999/html">
+        <div class="container-fluid mt-3 ">
+            <div class="row">
+                <div class="col-12 " style="background-color:tomato;">
+                    <h2 class="my-4 fw-bold text-white">Delivered Cylinder</h2>
+                </div>
+            </div>
+        </div>
+
+      <div class="container mt-5">
+
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs" style="font-size:20px;">
+    <li class="nav-item">
+      <a class="nav-link active" data-toggle="tab" href="#home">Cylinder Bookings</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#menu1">Accessories Bookings</a>
+    </li>
+    </ul>
+
+    <!-- Tab panes -->
+    <div class="tab-content">
+    <div class="tab-pane container active" id="home">      <div class="container mt-3">
+            <div class="row">
+                {%if data %}
+                <div class="col-12 ">
+                    <table class="table table-secondary table-bordered text-center my-5 ">
+                          <thead>
+                            <tr class="ms-auto">
+                              <th scope="col">Connection No</th>
+                              <th scope="col">Name</th>
+                              <th scope="col">Address</th>
+                              <th scope="col">Type</th>
+                              <th scope="col">Quantity</th>
+                                <th scope="col">Payment Mode</th>
+                                <th scope="col">Delivered By</th>
+                            </tr>
+                          </thead>
+                        {% for i in data%}
+                          <tbody>
+                            <tr>
+                              <td>{{i.Connection_no}}</td>
+                              <td>{{i.Name}}</td>
+                              <td>{{i.Address}}</td>
+                                <td>{{i.Type}}</td>
+                                <td>{{i.Quantity}}KG</td>
+                                <td>{{i.Payment_Mode}}</td>
+                                <td>{{i.Transportor_Name}}</td>
+
+                          </tbody>
+                        {%endfor%}
+                    </table>
+
+                </div>
+                {%else%}
+                <h1 class="mt-5 text-center">No Bookings</h1>
+                {%endif%}
+            </div>
+    </div>
+    </div>
+    <div class="tab-pane container fade" id="menu1">
+        <div class="col-12 ">
+            {%if Accessories %}
+                    <table class="table table-secondary table-bordered text-center my-5 ">
+                          <thead>
+                            <tr class="ms-auto">
+                              <th scope="col">Connection No</th>
+                              <th scope="col">Name</th>
+                              <th scope="col">Address</th>
+                              <th scope="col">Type</th>
+                              <th scope="col">Quantity</th>
+                                <th scope="col">Payment Mode</th>
+                                <th scope="col">Delivered By</th>
+                            </tr>
+                          </thead>
+                        {% for i in Accessories%}
+                          <tbody>
+                            <tr>
+                              <td>{{i.Conn_no}}</td>
+                              <td>{{i.CustomerName}}</td>
+                              <td>{{i.Delivery_address}}</td>
+                                <td>{{i.Product_name}}</td>
+                                <td>{{i.Quantity}}KG</td>
+                                <td>{{i.Payment}}</td>
+                                <td>{{i.Transportor_Name}}</td>
+
+                          </tbody>
+                        {%endfor%}
+                    </table>
+
+                </div>
+        {%else%}
+        <h1 class="mt-5 text-center">
+            No Bookings
+        </h1>
+        {%endif%}
+            </div>
+    </div>
+    </div>
+
+  </div>
+
+
+
+{% endblock %}

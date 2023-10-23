@@ -1,0 +1,241 @@
+{% extends 'Customerinherit.html' %}
+{% block body %}
+<style xmlns="http://www.w3.org/1999/html">
+    body {
+<!--      font-family: Arial, sans-serif;-->
+      background-image: url(../image/cook6.jpg); /* Replace with the URL of your background image */
+      background-size: cover;
+    }
+    .containertt {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.8);
+      border-radius: 10px;
+    }
+    h1 {
+      text-align: center;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+    }
+    th, td {
+      padding: 10px;
+      text-align: left;
+      border-bottom: 1px solid #ccc;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+    .confirmation-section {
+      text-align: center;
+    }
+    .confirm-btn {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+  </style>
+
+    {% if messages %}
+    {% for message in messages %}
+   <div class="modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Success Message</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <strong>{{message}}</strong>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+    {% endfor %}
+    {% endif %}
+<section class="d-flex justify-content-center align-items-center CylinderBook_bg " style="height: 89vh;">
+    <div class="container-fluid d-flex justify-content-center align-items-center "style="height: 381px;line-height: 2.6;">
+        <div class="row border rounded-5  bg-white shadow box-area d-flex justify-content-center align-items-center">
+            <div class="col-md-12 rounded-4 ">
+                <div class="header-text mb-4 bg-success py-2 text-white rounded-top-4" style="margin-top: 1px;margin-left: -11px;margin-right: -11px;">
+                    <h3 class="text-center">BOOK CYLINDER</h3>
+                </div>
+                <form action="BookCylinder" method="post">
+                    {% csrf_token %}
+                <div class="fs-4 p-3">
+                    <label for="mySelect">Refilling Type:</label>
+                                        <form method="post">
+                        {% csrf_token %}
+                        <select id="mySelect" name="selectedOption" class="py-2 px-2 border-0" required>
+                            <option value="" disabled selected>Select any Option</option>
+                            {% for i in data %}
+                            <option value="{{i.Quantity}}">{{i.Quantity}}KG</option>
+                            {%endfor%}
+                            <!-- Add more options as needed -->
+                            </select>
+
+                    <br>Refill Amount:<input type="text" id="result" name="refill_amount" class="border-0 ms-5" value="0" readonly><br>
+                    <label for="InputRefill">Refill date:</label><label class="ms-5">{{date}}</label><br>
+                    <label for="InputPaymentOption">Payment Option:</label>
+                    <input type="radio" class="ms-2" id="InputPaymentOption" value="Cash-on-Delivery" name="Payment_mode" required>Cash On Delivery</input>
+                    <input type="radio" class="ms-2" id="InputPaymentOption" value="Online" name="Payment_mode" required>Online</input>
+                    <br>
+                    <div class="d-flex justify-content-center align-items-center">
+
+                        <button type="submit" class="btn btn-success text-center mt-3 btn-lg" >
+                                Book
+                              </button>
+
+                    </div>
+                    </form>
+                    {% if check %}
+                            <button type="button" id="myButton"  data-bs-toggle="modal" data-bs-target="#staticBackdrop" hidden>Click Me</button>
+                          {% endif %}
+                        <button type="button" id="popup" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" hidden>
+                          PopUp button
+                        </button>
+
+</section>
+
+
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        <div class="container">
+                    <h1>Customer Order Details</h1>
+            <form action="Conform_booking" method="post">
+                {% csrf_token %}
+                    <table>
+                        {%for i in User_data%}
+                      <tr>
+                        <th>Connection No</th>
+                        <td id="">{{i.Con_number}}</td> <!-- Replace with the actual order ID -->
+                      </tr>
+                      <tr>
+                        <th>Customer Name</th>
+                        <td>{{i.Con_name}}</td> <!-- Replace with the actual customer name -->
+                      </tr>
+                      <tr>
+                        <th>Order Date</th>
+                        <td>{{date}}</td> <!-- Replace with the actual order date -->
+                      </tr>
+                        <tr>
+                        <th>Refill Type</th>
+                        <td id="refill_value">{{refill_type}}KG</td> <!-- Replace with the actual order date -->
+                      </tr>
+                      <tr>
+                        <th>Order Total</th>
+                        <td>Rs{{refill_Amount}}</td> <!-- Replace with the actual order total -->
+                      </tr>
+                      <tr>
+                        <th>Delivery Address</th>
+                        <td>{{i.Con_Address}}</td> <!-- Replace with the actual delivery address -->
+                      </tr>
+                        <tr>
+                            <th>Payment Type</th>
+                            <td>{{Payment_mode}}</td>
+                        </tr>
+                      <!-- Add more order details as needed -->
+                    </table>
+                <input type="text" name="refill_type" value="{{refill_type}}" hidden>
+                <input type="text" name="refill_p" value="{{refill_Amount}}"hidden>
+                <input type="text" name="refill_payment" value="{{Payment_mode}}"hidden>
+                <input type="text" name="refill_address" value="{{i.Con_Address}}"hidden>
+                <input type="text" name="refill_name" value="{{i.Con_name}}"hidden>
+                <input type="text" name="refill_connection_no" value="{{i.Con_number}}" hidden>
+
+
+                        {%endfor%}
+
+                    <!-- Confirmation Section -->
+                    <div class="confirmation-section">
+                      <h2>Confirm Booking</h2>
+                      <p>By clicking the button below, you confirm your booking.</p>
+                    </div>
+                  </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-success text-center">Conform Booking</button>
+            </div>
+        </form>
+          </div>
+        </div>
+      </div>
+    </div>
+      </div>
+</div>
+
+
+<script>
+    {% if check %}
+      // Use JavaScript to trigger the button click
+      document.addEventListener('DOMContentLoaded', function() {
+        var myButton = document.getElementById('myButton');
+        myButton.click(); // Simulate a button click
+      });
+    {% endif %}
+
+
+  </script>
+<script>
+    {% if messages %}
+      // Use JavaScript to trigger the button click
+      document.addEventListener('DOMContentLoaded', function() {
+        var myButton = document.getElementById('popup');
+        popup.click(); // Simulate a button click
+      });
+    {% endif %}
+
+
+  </script>
+
+
+
+<script>
+
+document.addEventListener('DOMContentLoaded', function() {
+    const select = document.getElementById('mySelect');
+    const resultInput = document.getElementById('result');
+
+    select.addEventListener('change', () => {
+        const selectedValue = select.value;
+        // Make a GET request to the server with the selected value
+        fetch(`/fetch-data/?selected=${selectedValue}`)
+            .then(response => response.json())
+            .then(data => {
+                if (data.length === 0) {
+                    resultInput.value = '0'; // Set the input value to 0
+                } else {
+                    // Extract and display desired details (Price)
+                    const details = data[0];  // Assuming there's only one detail
+                    resultInput.value = details.Price;
+                }
+            });
+    });
+});
+
+</script>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
+
+
+{% endblock %}

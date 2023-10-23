@@ -1,0 +1,141 @@
+from django.db import models
+class CustomerSignup(models.Model):
+    Name=models.CharField(max_length=20)
+    Gender=models.CharField(max_length=10)
+    Email=models.EmailField(max_length=15)
+    Password=models.CharField(max_length=15)
+class ApplyForJob(models.Model):
+    Job_id=models.IntegerField(primary_key=True)
+    Job_position = models.CharField(max_length=20,default='')
+    Name=models.CharField(max_length=10)
+    Address=models.CharField(max_length=20)
+    Gender=models.CharField(max_length=20)
+    Age=models.IntegerField()
+    Phone=models.IntegerField()
+    Location=models.CharField(max_length=20)
+    District=models.CharField(max_length=20)
+    Email=models.EmailField(max_length=20)
+    Applied_Date=models.DateField(default='')
+    Cv=models.FileField(upload_to='GasBooking/media/JobCv')
+    status = models.CharField(max_length=20,default='None')
+class AddJob(models.Model):
+    Job_id=models.IntegerField(primary_key=True)
+    Published_on=models.DateField()
+    Last_date=models.DateField()
+    Designation=models.CharField(max_length=20)
+    Qualification=models.CharField(max_length=20)
+    Salary=models.IntegerField()
+    JobType=models.CharField(max_length=10)
+class EmployeeSignUp(models.Model):
+    Employee_id=models.IntegerField(primary_key=True)
+    Emp_name=models.CharField(max_length=20)
+    Emp_address=models.CharField(max_length=20)
+    Emp_gender=models.CharField(max_length=20)
+    Emp_age=models.IntegerField()
+    Emp_phone=models.IntegerField()
+    Emp_location=models.CharField(max_length=20)
+    Emp_District=models.CharField(max_length=20)
+    Emp_Email=models.EmailField(max_length=15)
+    Password=models.CharField(max_length=20)
+
+class TransportorSignUp(models.Model):
+    t_id=models.IntegerField(primary_key=True)
+    t_name=models.CharField(max_length=20)
+    t_address=models.CharField(max_length=20)
+    t_gender=models.CharField(max_length=10)
+    t_age=models.IntegerField()
+    t_phone=models.IntegerField()
+    t_location=models.CharField(max_length=20)
+    t_VehicleNo=models.CharField(max_length=20)
+    t_VehicleType=models.CharField(max_length=20)
+    t_idproof=models.FileField(upload_to='GasBooking/media/TransportProff')
+    t_email=models.EmailField(max_length=20)
+    t_password=models.CharField(max_length=20)
+    t_joined_date=models.DateField()
+    t_is_activated=models.CharField(max_length=10)
+    Daily_booking=models.IntegerField(default=0)
+
+class ApplyForConnection(models.Model):
+    Con_id=models.IntegerField(primary_key=True)
+    Con_number=models.CharField(max_length=20,default='')
+    Con_name=models.CharField(max_length=20)
+    Con_Address=models.CharField(max_length=50)
+    Con_gender=models.CharField(max_length=10)
+    Con_phone=models.IntegerField()
+    Con_location=models.CharField(max_length=20)
+    Con_District=models.CharField(max_length=20)
+    Con_pincode=models.IntegerField()
+    Con_for=models.CharField(max_length=20)
+    Con_Est_name=models.CharField(max_length=20)
+    Con_Est_Address=models.CharField(max_length=50)
+    Con_Id_proof=models.FileField(upload_to='GasBooking/media/ConnectionIdProof')
+    Con_Email=models.EmailField(max_length=20)
+    Is_activate = models.CharField(default='',max_length=10)
+
+class AddCylinder(models.Model):
+    Cylinder_id=models.IntegerField(primary_key=True)
+    Title=models.CharField(max_length=20)
+    Quantity=models.IntegerField()
+    Description=models.CharField(max_length=50)
+    Price=models.IntegerField()
+    ForType=models.CharField(max_length=20)
+    CylinderImage=models.ImageField(upload_to='GasBooking/media/CylinderImage')
+
+class CylinderBook(models.Model):
+    Booking_id=models.IntegerField(primary_key=True)
+    Connection_no=models.CharField(max_length=20)
+    Name=models.CharField(max_length=20,default='')
+    Address=models.CharField(max_length=50,default='')
+    phone=models.IntegerField(default=0)
+    Type=models.CharField(max_length=20)
+    Quantity=models.IntegerField(default=0)
+    Price=models.IntegerField()
+    Payment_Mode=models.CharField(max_length=20)
+    Status=models.CharField(max_length=20)
+    Booking_date=models.DateField()
+    Transportor_id=models.IntegerField(default=0)
+    Transportor_Name=models.CharField(max_length=20,default="not taken Yet")
+    Transportor_phone=models.IntegerField(default=0)
+    Total_booking=models.IntegerField(default=0)
+    Delivered_date=models.CharField(max_length=20,default='')
+
+class AddAccessories(models.Model):
+    Accessories_id=models.IntegerField(primary_key=True)
+    Acess_title=models.CharField(max_length=30)
+    Acess_Desc=models.CharField(max_length=50)
+    Acess_price=models.IntegerField()
+    Acess_image_cover=models.ImageField(upload_to='GasBooking/media/Accessories/Cover')
+    Acess_2ndimage=models.ImageField(upload_to='GasBooking/media/Accessories/2ndImage')
+    Acess_3rdimage=models.ImageField(upload_to='GasBooking/media/Accessories/3rdImage')
+
+
+class BookAccessories(models.Model):
+    Booking_id=models.IntegerField(primary_key=True)
+    Conn_no=models.IntegerField()
+    CustomerName=models.CharField(max_length=20)
+    Product_id=models.IntegerField()
+    Product_name=models.CharField(max_length=20)
+    price=models.IntegerField()
+    Delivery_address=models.CharField(max_length=50)
+    Payment=models.CharField(max_length=20)
+    OrderDate=models.DateField()
+    Phone=models.IntegerField(default=0)
+    Quantity=models.IntegerField(default=0)
+    Status=models.CharField(max_length=20,default='')
+    Transportor_id=models.IntegerField(default=0)
+    Transportor_name=models.CharField(max_length=20,default='')
+    Transportor_Phone=models.IntegerField(default=0)
+
+
+class Admin(models.Model):
+    Name=models.CharField(max_length=20)
+    Gender=models.CharField(max_length=10)
+    Email=models.EmailField(max_length=15)
+    Password=models.CharField(max_length=15)
+
+
+class DailyLimit(models.Model):
+    DailyLimit=models.IntegerField()
+
+
+# Create your models here.

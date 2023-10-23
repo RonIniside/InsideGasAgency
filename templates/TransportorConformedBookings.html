@@ -1,0 +1,132 @@
+{% extends 'TransportorPage.html' %}
+{% block body %}
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+
+
+<div class="content" xmlns="http://www.w3.org/1999/html">
+        <div class="container mt-3 ">
+            <div class="row">
+                <div class="col-12 bg-success">
+                    <h2 class="my-4 fw-bold text-white">Assigned Bookings</h2>
+                </div>
+            </div>
+        </div>
+
+
+
+ <div class="container my-4">
+
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link active" data-toggle="tab" href="#home">Cylinder</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#menu1">Accessories</a>
+    </li>
+    </ul>
+
+      <div class="tab-content">
+    <div class="tab-pane container active" id="home">     <div class="container mt-3">
+            <div class="row">
+                <div class="col-12 ">
+                    <form data-toggle="validator" action="TransportorConformedBookings" method="post" onsubmit="return validateForm();">
+                        {%csrf_token%}
+                    <table class="table table-secondary table-bordered text-center my-5 ">
+                          <thead>
+                            <tr class="ms-auto">
+                              <th scope="col">Connection No</th>
+                              <th scope="col">Name</th>
+                              <th scope="col">Address</th>
+                               <th scope="col">phone</th>
+                              <th scope="col">Type</th>
+                              <th scope="col">Quantity</th>
+                                <th scope="col">Payment Mode</th>
+                                <th scope="col">Price</th>
+                                <th scope="col">status</th>
+                            </tr>
+                          </thead>
+                        {% for i in data%}
+                          <tbody>
+                            <tr>
+                              <td>{{i.Connection_no}}</td>
+                              <td>{{i.Name}}</td>
+                              <td>{{i.Address}}</td>
+                                <td>{{i.phone}}</td>
+                                <td>{{i.Type}}</td>
+                                <td>{{i.Quantity}}KG</td>
+                                <td>{{i.Payment_Mode}}</td>
+                                <td>{{i.Price}}</td>
+                                <td><input type="text" name="id" value="{{i.Booking_id}}" hidden><select name="action">
+                                <option value="On-The-Way">On The Way</option>
+                                    <option value="Delivered">Delivered</option>
+                                </select><br></td>
+                          </tbody>
+                        {%endfor%}
+                    </table>
+                </div>
+                <div class="col-4 ms-auto me-auto">
+                    <button type="submit">Update</button>
+                </div>
+                </form>
+            </div>
+      </div>
+    </div>
+    <div class="tab-pane container fade" id="menu1">
+
+          <div class="container mt-3">
+            <div class="row">
+                <div class="col-12 ">
+                    <form data-toggle="validator" action="TransportorConformedAcessoriesBookings" method="post" onsubmit="return validateForm();">
+                        {%csrf_token%}
+                    <table class="table table-secondary table-bordered text-center my-5 ">
+                          <thead>
+                            <tr class="ms-auto">
+                              <th scope="col">Connection No</th>
+                              <th scope="col">Name</th>
+                              <th scope="col">Address</th>
+                               <th scope="col">phone</th>
+                              <th scope="col">Type</th>
+                              <th scope="col">Quantity</th>
+                                <th scope="col">Payment Mode</th>
+                                <th scope="col">Price</th>
+                                <th scope="col">status</th>
+                            </tr>
+                          </thead>
+                        {% for i in Access%}
+                          <tbody>
+                            <tr>
+                              <td>{{i.Conn_no}}</td>
+                              <td>{{i.CustomerName}}</td>
+                              <td>{{i.Delivery_address}}</td>
+                                <td>{{i.Phone}}</td>
+                                <td>{{i.Product_name}}</td>
+                                <td>{{i.Quantity}}KG</td>
+                                <td>{{i.Payment}}</td>
+                                <td>{{i.price}}</td>
+                                <td><input type="text" name="id" value="{{i.Booking_id}}" hidden><select name="action" >
+                                <option value="On-The-Way">On The Way</option>
+                                    <option value="Delivered">Delivered</option>
+                                </select><br></td>
+                          </tbody>
+                        {%endfor%}
+                    </table>
+                </div>
+                <div class="col-4 ms-auto me-auto">
+                    <button type="submit">Update</button>
+                </div>
+                </form>
+            </div>
+      </div>
+    </div>
+    </div>
+    <div class="tab-pane container fade" id="menu2">...</div>
+    </div>
+  </div>
+
+{% endblock %}

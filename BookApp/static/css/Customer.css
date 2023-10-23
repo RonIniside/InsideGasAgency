@@ -1,0 +1,64 @@
+ .nav_barforhome {
+    /* background-color: #303030; */
+    width: 100%;
+    z-index: 9;
+    }
+    .Nav_items a {
+    float: right;
+    display: inline;
+    margin-right: 43px;
+    word-spacing: 6px;
+    color: white;
+    font-size: 18px;
+    }
+    .Nav_items{
+    margin-top: -53px;
+    margin-right: 19px;
+    }
+    .dropdown {
+    width: 200px;
+    }
+    .dropdown {
+    display: none;
+    background-color: red;
+    position: absolute;
+    left: 47%;
+    margin-top: 21px;
+    margin-left: 5px;
+    }
+    .nav_link3:hover .dropdown {
+        background-color:grey;
+        display:block;
+    }
+    .logo {
+    color: white;
+    line-height: 2;
+    font-size: 48px;
+    margin-left: 14px;
+    position: relative;
+    font-weight: bold;
+    }
+       nav {
+        background-color: #303030;
+    }
+    *
+    {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+    }
+    body
+    {
+        font-family: 'Rubik', sans-serif;
+    }
+    .Total_bok
+    {
+    background-color: #e79e9e;
+    width: 290px;
+    height: 143px;
+    font-size: 23px;
+    text-align: center;
+    padding: 10px 10px 10px 10px;
+    }

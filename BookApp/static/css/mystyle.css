@@ -1,0 +1,330 @@
+
+    *
+    {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+    }
+    .logo {
+    color: white;
+    line-height: 2;
+    font-size: 48px;
+    margin-left: 14px;
+    position: relative;
+    font-weight: bold;
+    }
+   .nav_bar {
+    /* background-color: #303030; */
+    position: absolute;
+    width: 100%;
+    z-index: 9;
+    }
+    nav ul {
+    float: right;
+    margin-right: 25px;
+    position: relative;
+    margin-top: 18px;
+    font-size: 18px;
+    }
+    nav ul li {
+    display: inline-block;
+    line-height: 3;
+    margin-right: 51px;
+    }
+    body
+    {
+        font-family: 'Rubik', sans-serif;
+    }
+    li a {
+    color: white;
+    }
+    .dropdown {
+    display: none;
+    background-color: red;
+    position: absolute;
+    left: 47%;
+    margin-top: 21px;
+    margin-left: 5px;
+    }
+    .nav_link4:hover .dropdown {
+        background-color:grey;
+        display:block;
+    }
+<!--    .nav_link1-->
+<!--    {-->
+<!--    margin-top: 37px;-->
+<!--    margin-left: -201px;-->
+<!--    position: absolute;-->
+<!--    }-->
+    a.nav_home {
+    margin-right: 55px;
+    }
+    .nav_link {
+    margin-top: -38px;
+    margin-left: 73px;
+    position: absolute;
+    }
+    .nav_link a{
+    color: white;
+    }
+    .dropdown {
+    width: 200px;
+    }
+    .Banner {
+    width:100px;
+
+    }
+    .Banner-Image{
+    height: 100vh;
+    width: 1521px;
+    object-fit: cover;
+    }
+    .section2_search {
+    background-color: #000000;
+    width: 100%;
+    height: 350px;
+    }
+    .h1_search {
+    position: absolute;
+    margin-top: 49px;
+    color: white;
+    left: 5%;
+    inline-size: 39px;
+    /* word-spacing: 17px; */
+    /* height: 99px; */
+    font-size: 40px;
+    line-height: 81px;
+    }
+    label
+     {
+    color: white;
+    }
+    .search_option {
+    position: absolute;
+    margin-top: 68px;
+    font-size: 30px;
+    left: 40%;
+    /* top: 10%; */
+    }
+    .search_option select {
+    font-size: 30px;
+    background-color: black;
+    color: white;
+    border: none;
+    margin-left: 15px;
+    margin-right: 15px;
+    }
+    .Search_Submit
+    {
+    font-size: 26px;
+    width: 150px;
+    border-radius: 19px;
+    text-decoration: none;
+    color: black;
+    font-family: 'Rubik', sans-serif;
+    background-color: #ffffff;
+    padding: 15px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin-left: 210px;
+    }
+    .section-2 {
+    margin-top: 0px;
+    }
+<!--    .nav_link2 {-->
+<!--    margin-top: 37px;-->
+<!--    margin-left: -118px;-->
+<!--    position: absolute;-->
+<!--    }-->
+    .line {
+    border-left: 6px solid white;
+    height: 352px;
+    margin-left: 336px;
+    position: absolute;
+    }
+    .Foot_details
+    {
+    height: 500px;
+    width: 100%;
+    margin-top: 29px;
+    background-color: #c9c9c9;
+    }
+    .Nav_items a {
+    float: right;
+    display: inline;
+    margin-right: 43px;
+    word-spacing: 6px;
+    color: white;
+    font-size: 18px;
+    }
+    .Nav_items{
+    margin-top: -53px;
+    margin-right: 19px;
+    }
+    label.Lbl_search {
+    margin-left: 110px;
+    }
+    p.foot_p {
+    inline-size: 301px;
+    line-height: 22px;
+    /* height: 113px; */
+    font-size: 14px;
+    margin-top: 44px;
+    position: absolute;
+    margin-left: 10px
+    }
+    p.foot_logo {
+    margin-top: 18px;
+    position: absolute;
+    margin-left: 10px;
+    }
+    section {
+    overflow: hidden;
+    }
+    .line_mark {
+    border-left: 2px solid black;
+    position: absolute;
+    height: 38%;
+    left: 29%;
+    }
+    .image_redirect img {
+    width: 100%;
+    padding: 15px 15px 15px 15px;
+    }
+    .image_redirect {
+    width: 427px;
+    }
+    img.Repair_img {
+    width: 100%;
+    }
+    .image2_redirect {
+    width: 427px;
+    }
+    .image_redirect {
+    display: inline-block;
+    width: 299px;
+    }
+    .image_redirect {
+    display: inline-block;
+    width: 485px;
+    padding: 10px 45px 10px 33px;
+    }
+    .Safety_img {
+    width: 100%;
+    }
+    .section-3 {
+    margin-top: 29px;
+    }
+    .Search_Submithome
+    {
+    font-size: 26px;
+    width: 150px;
+    border-radius: 19px;
+    text-decoration: none;
+    color: black;
+    font-family: 'Rubik', sans-serif;
+    background-color: #ffffff;
+    padding: 15px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin-left: 210px;
+    position:absolute;
+    }
+    img {
+    width:100%
+    }
+    .sec3_search_img {
+    background-color: whitesmoke;
+    border-radius: 17px;
+}
+
+    .sec_3_line_separator {
+    border-top: 2px solid;
+    width: 250px;
+}
+.section3_search {
+    margin-top: 5px;
+}
+.image_redirect p {
+    margin-left: 17px;
+    margin-top: 5px;
+    font-size: 15px;
+    font-weight: bold;
+}
+section.why_gs {
+    width: 100%;
+    height: auto;
+    background-color: lightcyan;
+    padding: 10px 10px 10px 10px;
+}
+h1.why_gs_h1 {
+    text-align: center;
+    margin-top: 25px;
+    font-weight: 600;
+    font-size: 40px;
+}
+.why_gs_box {
+    text-align: center;
+}
+.why_gs_box p {
+    font-size: 25px;
+    margin-top: 10px;
+}
+.why_gs_Content {
+    display: flex;
+    margin-left: 169px;
+}
+.why-gs-Content_item {
+    width: 296px;
+    height: auto;
+    padding: 20px 20px 20px 20px;
+}
+.why-gs-Content_item h1 {
+    font-size: 96px;
+    margin-left: 44px;
+}
+span.why_gas_content_span {
+    font-weight: bolder;
+}
+.Csption_h1 {
+    position: absolute;
+    margin-top: 300px;
+    color: white;
+    font-size: 30px;
+}
+.left, .right {
+  float: left;
+  width: 20%; /* The width is 20%, by default */
+}
+
+.main {
+  float: left;
+  width: 60%; /* The width is 60%, by default */
+}
+
+/* Use a media query to add a breakpoint at 800px: */
+
+@media only screen and (max-width: 800px) {
+  /* For mobile phones: */
+  .image_redirect, .Banner-Image, .right {
+    width: 100%;
+    height:auto;
+  }
+  .Banner {
+  width:auto;
+  }
+  .why_gs_Content {
+  display:block;
+  margin-left:0px
+  }
+  .why-gs-Content_item {
+  width:auto;
+  }
+form {
+display:none;
+}
+}

@@ -1,0 +1,48 @@
+{% extends 'AdminPage.html' %}
+{% block body %}
+{% if datas %}
+  <div class="content">
+        <div class="container mt-3 ">
+            <div class="row">
+                <div class="col-12 bg-success">
+                    <h2 class="my-4 fw-bold text-white">View Delivery staff</h2>
+                </div>
+            </div>
+        </div>
+      <div class="container mt-3">
+            <div class="row">
+                <div class="col-12 ">
+                    <table class="table table-secondary table-bordered text-center my-5 ">
+                          <thead>
+                            <tr class="ms-auto">
+                              <th scope="col">Name</th>
+                              <th scope="col">Address</th>
+                              <th scope="col">Gender</th>
+                                <th scope="col">Age</th>
+                              <th scope="col">Phone</th>
+                              <th scope="col">Location</th>
+                              <th scope="col">Email</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                          {% for i in datas %}
+                            <tr>
+                              <td>{{i.Emp_name}}</td>
+                              <td>{{i.Emp_address}}</td>
+                                <td>{{i.Emp_gender}}</td>
+                                <td>{{i.Emp_age}}</td>
+                                <td>{{i.Emp_phone}}</td>
+                                <td>{{i.Emp_location}}</td>
+                                <td>{{i.Emp_Email}}</td>
+                            </tr>
+                           {% endfor %}
+                          </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+      {% else %}
+      <h1>No Data</h1>
+{% endif %}
+
+{%endblock%}

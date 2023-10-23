@@ -1,0 +1,257 @@
+    *
+    {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+    }
+
+     body
+    {
+        font-family: 'Rubik', sans-serif;
+    }
+    nav {
+        height: 110px;
+        }
+    .navbar-item1:hover .dropdown-menu{
+    display:block;
+    }
+    .logo ::before {
+    color: tomato;
+    }
+.carousel-item.active {
+    height: 704px;
+}
+    .Banner {
+    background-image: url(../image/for-home.jpg);
+    width: 100%;
+    background-size: cover;
+    height: 671px;
+}
+.carousel-item.active {
+    font-size: 30px;
+    font-weight: bold;
+}
+.desc {
+line-height: 2;
+}
+.vr {
+    width: 4px;
+    background-color: white;
+    opacity:unset;
+}
+.form-select {
+    width: 100%;
+}
+.quick_wid_div img {
+width:100%;
+}
+.Quick_widgets_h {
+font-size:90px;
+}
+.footer {
+background-color: blanchedalmond;
+}
+.widgets_divider {
+height: 1px;
+}
+.form-select {
+    width: 13%;
+    height: 33px;
+}
+.widgets_btn
+{
+    margin-left: 195px;
+    font-size: 20px;
+    width: 123px;
+    border-radius: 19px;
+    text-decoration: none;
+    color: black;
+    font-family: 'Rubik', sans-serif;
+    background-color: #ffffff;
+    padding: 10px 13px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    }
+.desc-p-2 {
+    margin-left: 105px;
+}
+.vr {
+    min-height: 19em;
+}
+ .Search_Submithome
+    {
+    font-size: 26px;
+    width: 150px;
+    border-radius: 19px;
+    text-decoration: none;
+    color: black;
+    font-family: 'Rubik', sans-serif;
+    background-color: #ffffff;
+    padding: 15px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin-left: 252px;
+    }
+    .join-Image {
+    width: 90%;
+    padding: 10px 10px 10px 10px;
+    background-color: white;
+    }
+    .col-5.my-5.\31 st-section-img {
+    margin-left: -40px;
+    }
+    .hr {
+    height: 5px;
+    }
+    .sec_2_Register {
+    width: 90%;
+
+    }
+    .Register_box {
+    position: absolute;
+    margin-top: -30%;
+    margin-left: 70%;
+    background-color: whitesmoke;
+    padding: 25px 50px 25px 50px;
+    }
+    .img-fluid1 {
+    width: 100%;
+    object-fit: cover;
+    height: 497px;
+    }
+    .img-fluid {
+    width: 100%;
+    object-fit: cover;
+    height: 250px;
+    }
+    .line {
+    width: 112px;
+    height: 47px;
+    border-bottom: 1px solid black;
+ }
+ .Accessories-Banner {
+    background-image: url(../image/cook6.jpg);
+    width: 100%;
+    background-size: cover;
+    height: 250px;
+
+ }
+ .background {
+     background-image: url(../image/cook6.jpg);
+    width: 100%;
+    background-size: cover;
+    height: 250px;
+ }
+  .body {
+     background-image: url(../image/login-image.jpg);
+    width: 100%;
+    background-size: cover;
+    height: 250px;
+ }
+
+.Access_carousel {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    height: 511px;
+}
+
+/*body{
+    font-family: 'Poppins', sans-serif;
+    background: #ececec;
+}*/
+/*------------ Login container ------------*/
+.box-area{
+    width: 930px;
+}
+/*------------ Right box ------------*/
+.right-box{
+    padding: 40px 30px 40px 40px;
+}
+/*------------ Custom Placeholder ------------*/
+::placeholder{
+    font-size: 16px;
+}
+.rounded-4{
+    border-radius: 20px;
+}
+.rounded-5{
+    border-radius: 30px;
+}
+.fa-sun::before {
+font-size:50px;
+}
+.background-img {
+    background-image: url(../image/cook6.jpg);
+    width: 100%;
+    background-size: cover;
+}
+#side_nav {
+    background: #fff;
+    min-width: 196px;
+    max-width: 196px;
+}
+.content {
+    min-height: 87vh;
+    width: 100%;
+}
+.side-menu-employee {
+    line-height: 4!important;
+}
+li a {
+color:black;
+}
+.Dashboard_Quick_acss {
+    font-size: 70px;
+}
+.Dashboard_Quick_acss_width {
+width: 300px;
+}
+.Dashboard_Quick
+{
+    width: 362px;
+}
+.job_bg {
+background-image: url(../image/cook6.jpg);
+    width: 100%;
+    background-size: cover;
+}
+.CylinderBook_bg {
+background-image: url(../image/CylinderBook.jpg);
+    width: 100%;
+    background-size: cover;
+}
+.glass {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border:1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+.glasslogin {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border:1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+/*------------ For small screens------------*/
+@media only screen and (max-width: 768px){
+     .box-area{
+        margin: 0 10px;
+     }
+     .left-box{
+        height: 100px;
+        overflow: hidden;
+     }
+     .right-box{
+        padding: 20px;
+     }
+}
+
+

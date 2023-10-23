@@ -1,0 +1,82 @@
+{% extends 'Customerinherit.html' %}
+{% block body %}
+ <div class="content">
+        <div class="container mt-3 ">
+            <div class="row">
+                <div class="col-12 bg-success">
+                    <h2 class="my-4 fw-bold text-white">View Booking Details</h2>
+                </div>
+            </div>
+        </div>
+     {%if data%}
+      <div class="container mt-3">
+            <div class="row">
+                <div class="col-12 ">
+                    <table class="table table-secondary table-bordered text-center my-5 ">
+                          <thead>
+                            <tr class="ms-auto">
+                              <th scope="col">Booking_no</th>
+                              <th scope="col">Delivered By</th>
+                              <th scope="col">Phone</th>
+                                <th scope="col">Product</th>
+                                <th scope="col">Booked Date</th>
+                              <th scope="col">Price</th>
+                              <th scope="col">Payment Type</th>
+                              <th scope="col">Status</th>
+                                <th scope="col">Cancel</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                          {% for i in data %}
+                            <tr>
+                              <td>{{i.Booking_id}}</td>
+                              <td>{{ i.Transportor_name|default:"Not Taken Yet" }}</td>
+                                <td>{{i.Transportor_Phone|default:"-"}}</td>
+                                <td>{{i.Product_name}}</td>
+                                <td>{{i.OrderDate}}</td>
+                                <td>{{i.price}}</td>
+                                <td>{{i.Payment}}</td>
+                                <td>{{i.Status}}</td>
+                                    {% if i.Status == "Booked" or i.Status == "Conformed"%}
+                                    <td>
+                                        <form action="/AcessoriesBookingCancel" method="post">
+                                            {%csrf_token%}
+                                        <input type="text" name="Booking_id" value="{{i.Booking_id}}" hidden>
+                                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                        Cancel
+                                        </button>
+                                    </td>
+                                {% elif i.Status == "Canceled" %}
+                                    <td class="text-success">Canceled </td>
+                                {%else%}
+                                    <td class="text-success">Unavailable to Cancel </td>
+                                {%endif%}
+                            </tr>
+                           {% endfor %}
+                          </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+{%else%}
+     <h3>No Bookings</h3>
+{%endif%}
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Conformation</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Are You Sure! Want to Cancel?.....
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" data-bs-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-danger">Yes</button>
+           </form>
+      </div>
+    </div>
+  </div>
+</div>
+{%endblock%}

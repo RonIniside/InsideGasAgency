@@ -1,0 +1,191 @@
+{% extends 'AdminPage.html' %}
+{% block body %}
+<div class="content" xmlns="http://www.w3.org/1999/html">
+        <div class="container mt-3 ">
+            <div class="row">
+                <div class="col-12 bg-success">
+                    <h2 class="my-4 fw-bold text-white">Bookings</h2>
+                </div>
+            </div>
+        </div>
+      <div class="container mt-3">
+            <div class="row">
+                       <div class="col-6 ms-auto me-auto bg-secondary rounded fs-5 d-inline-flex">
+                           <div class="ms-auto me-auto d-inline-flex">
+                            <p class="my-2 mx-3">Status:</p>
+                                <form action="AdminViewBookings" method="post">
+                                   {%csrf_token%}
+                                  <select name="action" class="my-2 mx-3 ">
+                                        <option value="Booked" {% if option == 'Booked' %} selected {%endif%}>Booked </option>
+                                      <option value="Conformed" {% if option == 'Conformed' %} selected {%endif%}>Conformed</option>
+                                      <option value="On-The-Way" {% if option == 'On-The-Way' %} selected {%endif%}>On The Way</option>
+                                      <option value="Delivered" >Delivered</option>
+                                      <option value="Canceled" {% if option == 'Canceled' %} selected {%endif%}>Canceled</option>
+                                    </select>
+                                    <button type="submit" class="btn btn-success my-2 mx-3 d-inline-flex  ">Search</button>
+                                </form>
+                            </div>
+                       </div>
+
+                <div class="col-12 ">
+                    <form data-toggle="validator" action="EmpViewConformedBooking" method="post" onsubmit="return validateForm();">
+                        {%csrf_token%}
+                        {%if Booked%}
+                    <table class="table table-secondary table-bordered text-center my-5 ">
+                          <thead>
+                            <tr class="ms-auto">
+                              <th scope="col">Connection No</th>
+                              <th scope="col">Name</th>
+                              <th scope="col">Address</th>
+                              <th scope="col">Type</th>
+                              <th scope="col">Quantity</th>
+                                <th scope="col">Payment Mode</th>
+                            </tr>
+                          </thead>
+                        {% for i in Booked%}
+                          <tbody>
+                            <tr>
+                              <td>{{i.Connection_no}}</td>
+                              <td>{{i.Name}}</td>
+                              <td>{{i.Address}}</td>
+                                <td>{{i.Type}}</td>
+                                <td>{{i.Quantity}}KG</td>
+                                <td>{{i.Payment_Mode}}</td>
+                          </tbody>
+                        {%endfor%}
+                        {%endif%}
+
+                    </table>
+
+                    {%if Conformed%}
+                        <table class="table table-secondary table-bordered text-center my-5 ">
+                          <thead>
+                            <tr class="ms-auto">
+                              <th scope="col">Connection No</th>
+                              <th scope="col">Name</th>
+                              <th scope="col">Address</th>
+                              <th scope="col">Type</th>
+                              <th scope="col">Quantity</th>
+                                <th scope="col">Payment Mode</th>
+                            </tr>
+                          </thead>
+                        {% for c in Conformed%}
+                          <tbody>
+                            <tr>
+                              <td>{{c.Connection_no}}</td>
+                              <td>{{c.Name}}</td>
+                              <td>{{c.Address}}</td>
+                                <td>{{c.Type}}</td>
+                                <td>{{c.Quantity}}KG</td>
+                                <td>{{c.Payment_Mode}}</td>
+                          </tbody>
+                        {%endfor%}
+                            {%endif%}
+                    </table>
+                        {%if OntheWay %}
+                        <table class="table table-secondary table-bordered text-center my-5 ">
+                          <thead>
+                            <tr class="ms-auto">
+                              <th scope="col">Connection No</th>
+                              <th scope="col">Name</th>
+                              <th scope="col">Address</th>
+                              <th scope="col">Type</th>
+                              <th scope="col">Quantity</th>
+                                <th scope="col">Payment Mode</th>
+                                <th scope="col">Delivered By</th>
+                                <th scope="col">Transportor Number</th>
+                            </tr>
+                          </thead>
+                        {% for o in OntheWay %}
+                          <tbody>
+                            <tr>
+                              <td>{{o.Connection_no}}</td>
+                              <td>{{o.Name}}</td>
+                              <td>{{o.Address}}</td>
+                                <td>{{o.Type}}</td>
+                                <td>{{o.Quantity}}KG</td>
+                                <td>{{o.Payment_Mode}}</td>
+                                <td>{{o.Transportor_Name}}</td>
+                                <td>{{o.Transportor_phone}}</td>
+                          </tbody>
+                        {%endfor%}
+                            {%endif%}
+                    </table>
+
+
+
+
+                        {%if Delivered%}
+                        <table class="table table-secondary table-bordered text-center my-5 ">
+                          <thead>
+                            <tr class="ms-auto">
+                              <th scope="col">Connection No</th>
+                              <th scope="col">Name</th>
+                              <th scope="col">Address</th>
+                              <th scope="col">Type</th>
+                              <th scope="col">Quantity</th>
+                                <th scope="col">Payment Mode</th>
+                                <th scope="col">Delivered By</th>
+                                <th scope="col">Transportor Number</th>
+                            </tr>
+                          </thead>
+                        {% for D in Delivered%}
+                          <tbody>
+                            <tr>
+                              <td>{{D.Connection_no}}</td>
+                              <td>{{D.Name}}</td>
+                              <td>{{D.Address}}</td>
+                                <td>{{D.Type}}</td>
+                                <td>{{D.Quantity}}KG</td>
+                                <td>{{D.Payment_Mode}}</td>
+                                <td>{{D.Transportor_Name}}</td>
+                                <td>{{D.Transportor_phone}}</td>
+                          </tbody>
+                        {%endfor%}
+                    </table>
+                        {%endif%}
+
+
+
+                        {%if Canceled%}
+                        <table class="table table-secondary table-bordered text-center my-5 ">
+                          <thead>
+                            <tr class="ms-auto">
+                              <th scope="col">Connection No</th>
+                              <th scope="col">Name</th>
+                              <th scope="col">Address</th>
+                              <th scope="col">Type</th>
+                              <th scope="col">Quantity</th>
+                                <th scope="col">Payment Mode</th>
+                            </tr>
+                          </thead>
+                        {% for D in Canceled%}
+                          <tbody>
+                            <tr>
+                              <td>{{D.Connection_no}}</td>
+                              <td>{{D.Name}}</td>
+                              <td>{{D.Address}}</td>
+                                <td>{{D.Type}}</td>
+                                <td>{{D.Quantity}}KG</td>
+                                <td>{{D.Payment_Mode}}</td>
+                          </tbody>
+                        {%endfor%}
+                    </table>
+                        {%endif%}
+                </div>
+
+        </div>
+</form>
+<script>
+    function validateForm() {
+        var checkboxes = document.querySelectorAll('input[type="checkbox"][name="check"]');
+        for (var i = 0; i < checkboxes.length; i++) {
+            if (checkboxes[i].checked) {
+                return true;
+            }
+        }
+        alert('Please select at least one booking to update.');
+        return false;
+    }
+</script>
+{% endblock %}

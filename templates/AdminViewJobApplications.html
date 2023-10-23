@@ -1,0 +1,85 @@
+{% extends 'AdminPage.html' %}
+{% block body %}
+{% if data %}
+  <div class="content">
+        <div class="container mt-3 ">
+            <div class="row">
+                <div class="col-12 bg-success">
+                    <h2 class="my-4 fw-bold text-white">View Job Applications</h2>
+                </div>
+            </div>
+        </div>
+          {% if messages %}
+    {% for message in messages %}
+   <div class="modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Success Message</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <strong>{{message}}</strong>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+    {% endfor %}
+    {% endif %}
+      <div class="container mt-3">
+            <div class="row">
+                <div class="col-12">
+                    <table class="table table-secondary table-bordered text-center my-5">
+                          <thead>
+                            <tr class="ms-auto ">
+                                <th scope="col">Job Position</th>
+                              <th scope="col">Name</th>
+                              <th scope="col">Address</th>
+                              <th scope="col">Gender</th>
+                                <th scope="col">Age</th>
+                              <th scope="col">Phone</th>
+                              <th scope="col">Locations</th>
+                              <th scope="col">Applied Date</th>
+                              <th scope="col">Cv</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                          {% for i in data %}
+                            <tr class="">
+                              <td>{{i.Job_position}}</td>
+                              <td>{{i.Name}}</td>
+                              <td>{{i.Address}}</td>
+                                <td>{{i.Gender}}</td>
+                                <td>{{i.Age}}</td>
+                                <td>{{i.Phone}}</td>
+                                <td>{{i.Location}}</td>
+                                <td>{{i.Applied_Date}}</td>
+                                <td class="text-break"><a href="{{i.Cv}}">{{i.Cv}}</a> </td>
+                              <td><a href="/AdminAcceptJobApply?id={{i.Job_id}}" class="btn btn-primary d-inline-flex">Accept</a></td>
+                            </tr>
+                          {% endfor %}
+                          </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+      {% else %}
+      <h1 class="text-center mt-5">No Data</h1>
+{% endif %}
+
+<script>
+    {% if messages %}
+      // Use JavaScript to trigger the button click
+      document.addEventListener('DOMContentLoaded', function() {
+        var myButton = document.getElementById('popup');
+        popup.click(); // Simulate a button click
+      });
+    {% endif %}
+
+
+  </script>
+{%endblock%}

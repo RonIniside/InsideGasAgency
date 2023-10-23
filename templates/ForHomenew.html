@@ -1,0 +1,101 @@
+{% extends 'CustomerPage.html' %}
+{% load static %}
+{% block body %}
+
+
+<section>
+<div class="container-fluid">
+    <div class="row bg-danger">
+        <div class="col-7 text-white">
+            <h6 class="mt-5 lh-lg">LPG CONNECTION FOR HOME</h6>
+            <h2 class="fw-bold lh-lg">Most reliable domestic private gas connection<br>INSIDE GAS</h2>
+            <h5 class="lh-lg">ONE YOU CAN TRUST</h5>
+            <input class="Search_Submithome" type="submit" value="Let's GO">
+        </div>
+        <div class="col-5 text-white rounded-3 py-5 ">
+            <img class="join-Image  rounded-3 " src="{%static 'image/linkimg.jpg'%}">
+        </div>
+    </div>
+</div>
+</section>
+<section>
+
+
+<div class="container-fluid mt-1 bg-dark">
+    <div class="row">
+        <div class="col-12 bg-dark ">
+            <div class="hr">
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+<section class="mt-1">
+    <div class="">
+          <img class=" img-fluid1 " src="{%static 'image/cook6.jpg'%}">
+    </div>
+    <div class="Register_box">
+        <div>
+            <form action="" method="post">
+                <div class="mb-3">
+                <label for="exampleInputName1" class="form-label">Name</label>
+                <input type="text" class="form-control" id="exampleInputName1" name="Quick_reg_name" aria-describedby="Name">
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Password</label>
+                <input type="password" class="form-control" id="exampleInputPassword1">
+              </div>
+              <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1">Check me out</label>
+              </div>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+
+    </div>
+</section>
+<section>
+    <div class="container-fluid my-3  ">
+        <div class="row text-center  ">
+            <h3 class="border border-5 py-3 border-success fs-2 fw-bold">Our Products</h3>
+        </div>
+    </div>
+</section>
+<section class="Prduct_sec my-3 ">
+    <img class=" img-fluid " src="{%static 'image/groupCylinder.jpg'%}">
+    <div class="container">
+        <div class="row">
+            <div class="col-6 d-inline-flex mt-4">
+                <img src="{%static 'image/cook6.jpg'%}" style="width:50%">
+                <p class="mx-4 lh-lg fs-5">Three meals a day for a healthy family in your new home? Our 12Kg cylinder will definitely make the difference you’re looking for.<br><span class="mt-2 fw-bold">12 Kg Domestic LPG Gas<i class="fa-solid fa-arrow-right"></i></span></p><br>
+            </div>
+            <div class="col-6 d-inline-flex mt-4">
+                <img src="{%static 'image/cook6.jpg'%}" style="width:50%">
+                <p class="mx-4 lh-lg fs-5">Just the two of you roommates looking to experiment with food? Our 4Kg cylinder will be the right fuel to power up your kitchen.<br><span class="mt-2 fw-bold">4 Kg Domestic LPG Gas<i class="fa-solid fa-arrow-right"></i></span></p><br>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script src="js/bootstrap.js"></script>
+{% endblock %}
+
+
+</html>

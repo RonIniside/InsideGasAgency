@@ -1,0 +1,58 @@
+
+{% extends 'EmployeePage.html' %}
+{% block body %}
+<div class="content">
+        <div class="container mt-3 ">
+            <div class="row">
+                <div class="col-12 bg-success">
+                    <h2 class="my-4 fw-bold text-white">Add Accessories</h2>
+                </div>
+            </div>
+        </div>
+    {%for i in data%}
+      <div class="col-md-6 right-box ms-auto mx-auto bg-white my-4 rounded">
+            <div class="row">
+                <div class="col-12 ">
+                    <form action="/EmpEditAcessories" method="post" enctype="multipart/form-data">
+                        {%csrf_token%}
+                        <input type="text" name="id" value="{{i.Accessories_id}}">
+                      <div class="mb-3">
+                        <label for="exampleInputTitle"  class="form-label">Title</label>
+                        <input type="text"  name="title" class="form-control" value="{{i.Acess_title}}" id="exampleInputTitle">
+                      </div>
+                        <div class="mb-3">
+                        <label for="exampleInputDescription1" class="form-label">Description</label>
+                        <input type="text" name="description" value="{{i.Acess_Desc}}" class="form-control" id="exampleInputDescription1">
+                      </div>
+                      <div class="mb-3">
+                        <label for="exampleInputPrice" class="form-label">Price</label>
+                        <input type="number" name="Price" value="{{i.Acess_price}}" class="form-control" id="exampleInputPrice">
+                      </div>
+                        <div class="mb-3">
+                            <label for="exampleInputCoverImage" class="form-label">Current Cover Image</label>
+                            <a href="{{i.Acess_image_cover.url}}">{{i.Acess_image_cover.url}}</a><br>
+                        <label for="exampleInputCoverImage" class="form-label">Cover Image</label>
+                        <input type="file" name="cover"  class="form-control" id="exampleInputCoverImage">
+                        </div>
+                         <div class="mb-3">
+                             <label for="exampleInputCoverImage" class="form-label">Current 2nd Image</label>
+                             <a href="{{i.Acess_2ndimage.url}}">{{i.Acess_2ndimage.url}}}</a><br>
+                        <label for="exampleInput2ndimgImage" class="form-label">2nd Image</label>
+                        <input type="file" name="2ndimage" value="{{i.Acess_2ndimage.url}}" class="form-control" id="exampleInput2ndimgImage">
+                        </div>
+                         <div class="mb-3">
+                              <label for="exampleInputCoverImage" class="form-label">Current 3rd Image</label>
+                             <a href="{{i.Acess_3rdimage.url}}">{{i.Acess_3rdimage.url}}</a><br>
+                        <label for="exampleInput3rdimgImage" class="form-label">3rd Image</label>
+                        <input type="file" name="3rdimage" value="{{i.Acess_3rdimage.url}}" class="form-control" id="exampleInput3rdimgImage">
+                        </div>
+                        <div class="mb-3 text-center">
+                       <button type="submit" class="btn btn-primary ms-auto ">Submit</button>
+                        </div>
+
+                    </form>
+                    {%endfor%}
+                </div>
+            </div>
+        </div>
+{% endblock %}

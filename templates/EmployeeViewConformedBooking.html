@@ -1,0 +1,229 @@
+{% extends 'EmployeePage.html' %}
+{% block body %}
+
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+
+<div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered ">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Message</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+          <h5>Please select at least one booking to update.</h5>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<button type="button" id="popupbutton" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal1" hidden>
+  Launch demo modal
+</button>
+
+   <div class="content">
+        <div class="container-fluid mt-3 ">
+            <div class="row">
+                <div class="col-12 " style="background-color:tomato;">
+                    <h2 class="my-4 fw-bold text-white">Conformed Cylinder</h2>
+                </div>
+            </div>
+        </div>
+
+         <div class="container my-5">
+
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs" style="font-size:20px;">
+    <li class="nav-item">
+      <a class="nav-link active" data-toggle="tab" href="#home">Cylinder booking</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#menu1">Accessories Booking</a>
+    </li>
+    </ul>
+
+    <!-- Tab panes -->
+    <div class="tab-content">
+    <div class="tab-pane container active" id="home">
+        <div class="container mt-3">
+            <div class="row">
+                <div class="col-12 ">
+                    <form data-toggle="validator" action="EmpViewConformedBooking" method="post" onsubmit="return validateForm();">
+                        {%csrf_token%}
+                    <table class="table table-secondary table-bordered text-center my-5 ">
+                          <thead>
+                            <tr class="ms-auto">
+                              <th scope="col">Connection No</th>
+                              <th scope="col">Name</th>
+                              <th scope="col">Address</th>
+                              <th scope="col">Type</th>
+                              <th scope="col">Quantity</th>
+                                <th scope="col">Payment Mode</th>
+                                <th scope="col">Select</th>
+                            </tr>
+                          </thead>
+                        {% for i in data%}
+                          <tbody>
+                            <tr>
+                              <td>{{i.Connection_no}}</td>
+                              <td>{{i.Name}}</td>
+                              <td>{{i.Address}}</td>
+                                <td>{{i.Type}}</td>
+                                <td>{{i.Quantity}}KG</td>
+                                <td>{{i.Payment_Mode}}</td>
+                                <td><input type="checkbox" name="check" value="{{i.Booking_id}}" ></td>
+                          </tbody>
+                        {%endfor%}
+                    </table>
+
+                </div>
+                <div class="col-6 ms-auto me-auto text-center bg-success rounded fs-5 d-inline-flex">
+                    <div class="ms-auto me-auto d-inline-flex d-flex">
+                            <p class="my-2 align-self-center mx-3 ">Assign To:</p>
+                                  <select class="align-self-center mx-3" name="action">
+                                      {%for i in Trans%}
+                                      <option value="{{i.t_id}}">{{i.t_name}} - <span class="badge bg-secondary">{{i.Daily_booking}}</span></option>
+                                      {%endfor%}
+                                    </select><br>
+                            <input type="number" name="selector" value="1" hidden>
+                            <button type="submit" class="btn btn-primary my-3 mx-3">Submit</button>
+                            </form>
+                        </div>
+            </div>
+
+        </div>
+      </div>
+    </div>
+    <div class="tab-pane container fade" id="menu1">
+        <div class="container mt-3">
+            <div class="row">
+                <div class="col-12 ">
+                    <form data-toggle="validator" action="EmpViewConformedBooking" method="post" onsubmit="return validateForm();">
+                        {%csrf_token%}
+                    <table class="table table-secondary table-bordered text-center my-5 ">
+                          <thead>
+                            <tr class="ms-auto">
+                              <th scope="col">Connection No</th>
+                              <th scope="col">Name</th>
+                              <th scope="col">Address</th>
+                              <th scope="col">Product</th>
+                              <th scope="col">Quantity</th>
+                                <th scope="col">Payment Mode</th>
+                                <th scope="col">Select</th>
+                            </tr>
+                          </thead>
+                        {% for i in Acess%}
+                          <tbody>
+                            <tr>
+                              <td>{{i.Conn_no}}</td>
+                              <td>{{i.CustomerName}}</td>
+                              <td>{{i.Delivery_address}}</td>
+                                <td>{{i.Product_name}}</td>
+                                <td>{{i.Quantity}}</td>
+                                <td>{{i.Payment}}</td>
+                                <td><input type="checkbox" name="check" value="{{i.Booking_id}}" ></td>
+                          </tbody>
+                        {%endfor%}
+                    </table>
+
+                </div>
+                <div class="col-6 ms-auto me-auto text-center bg-success rounded fs-5 d-inline-flex">
+                    <div class="ms-auto me-auto d-inline-flex d-flex">
+                            <p class="my-2 align-self-center mx-3">Assign To:</p>
+
+                                  <select class="align-self-center mx-3" name="action">
+                                      {%for i in Trans%}
+                                        <option value="{{i.t_id}}">{{i.t_name}} - <span class="badge bg-secondary">{{i.Daily_booking}}</span></option>
+                                      {%endfor%}
+                                    </select><br>
+
+                            <input type="number" name="selector" value="2" hidden>
+                            <button type="submit" class="btn btn-primary my-3 mx-3">Submit</button>
+                            </form>
+                        </div>
+            </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-pane container fade" id="menu2">...</div>
+    </div>
+  </div>
+<button type="button" id="popup" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" hidden>
+                          PopUp button
+                        </button>
+           {% if messages %}
+    {% for message in messages %}
+   <div class="modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Success Message</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <strong>{{message}}</strong>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+    {% endfor %}
+    {% endif %}
+
+<script>
+function validateForm() {
+    var checkboxes = document.querySelectorAll('input[type="checkbox"][name="check1"]');
+    for (var i = 0; i < checkboxes.length; i++) {
+        if (checkboxes[i].checked) {
+            return true;
+        }
+    }
+
+    // No checkboxes are selected, trigger a button click event
+    var button = document.getElementById("popupbutton"); // Replace "yourButtonId" with the actual ID of your button
+    if (button) {
+        button.click(); // Trigger the button click event
+    }
+
+    return false;
+}
+function validateForm() {
+    var checkboxes = document.querySelectorAll('input[type="checkbox"][name="check"]');
+    for (var i = 0; i < checkboxes.length; i++) {
+        if (checkboxes[i].checked) {
+            return true;
+        }
+    }
+
+    // No checkboxes are selected, trigger a button click event
+    var button = document.getElementById("popupbutton"); // Replace "yourButtonId" with the actual ID of your button
+    if (button) {
+        button.click(); // Trigger the button click event
+    }
+
+    return false;
+}
+</script>
+       <script>
+    {% if messages %}
+      // Use JavaScript to trigger the button click
+      document.addEventListener('DOMContentLoaded', function() {
+        var myButton = document.getElementById('popup');
+        popup.click(); // Simulate a button click
+      });
+    {% endif %}
+
+
+  </script>
+{% endblock %}
